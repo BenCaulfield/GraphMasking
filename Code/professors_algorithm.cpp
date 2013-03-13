@@ -79,6 +79,7 @@ void delete_working_element(vector<working_edge>& working_list, int position){
 //ex: [0, -1, 1, 2, -1, 3, 4] is a BFS from 0, with 1 & 2 at depth 1, and 3 & 4 at depth 2
 vector<int> BFS(vector<list<int> >& graph, int start, int depth, vector<bool>& viewed_nodes){
     vector<int> queue;
+    if (graph[start].empty()){return queue;}
     int position = 0;
     viewed_nodes[start] = true;
     queue.push_back(start);
@@ -151,6 +152,7 @@ pair<int, int> get_random_edge(vector<working_edge>& working_list, int& position
     return return_edge;
 }
 
+
 /*
 pair<int, int> get_random_pair(list<pair<int, int> >& working_list){
     int position = rand() % working_list.size();
@@ -173,6 +175,76 @@ void Print_Adjacency_Graph(vector<list<int> >& neighborhood){
         }
     }
 }
+
+//gets random edge from working list, removes that edge from list
+pair<int, int> get_rand_edge(vector<pair<int, int> >& working_list){
+    int position = rand() % working_list.size();
+    pair<int, int> return_edge;
+    return_edge.first = working_list[position].first;
+    return_edge.second = working_list[position].second;
+    working_list[position] = working_list.back();
+    working_list.pop_back();
+    return return_edge;
+}
+
+
+void newProfs(vector<set<int> >& K_neighborhood, vector<list<int> >& Final_graph, int k){
+    
+    //Fills working list with all elements of K_neighborhood
+    vector<pair<int, int> > working_list;
+    for(int i=0; i<K_neighborhood.size(); i++){
+        for(set<int>::iterator itr = K_neighborhood[i].begin(); itr != K_neighborhood[i].end(); itr++){
+            pair<int, int> new_edge;
+            if(i < *itr){
+                new_edge.first = i;
+                new_edge.second = *itr;
+                working_list.push_back(new_edge);
+            }
+        }
+    }
+
+    vector<bool> viewed_nodes(K_neighborhood.size(), false);
+
+    cout << viewed_nodes.size() << " " << K_neighborhood.size() << " " << Final_graph.size() << " " << working_list.size() << endl;
+    while(working_list.size() != 0){
+        pair<int, int> current_edge = get_rand_edge(working_list);
+
+        viewed_nodes[current_edge.second] = true;
+        vector<int> source_BFS = BFS(Final_graph, current_edge.first, k-1, viewed_nodes);
+        viewed_nodes[current_edge.second] = false;
+
+        viewed_nodes[current_edge.first] = true;
+        vector<int> target_BFS = BFS(Final_graph, current_edge.second, k-1, viewed_nodes);
+        viewed_nodes[current_edge.first] = false;
+
+
+        bool violating_edge = false; 
+        int source_depth = 0;
+        for(int i=0; i<source_BFS.size(); i++){
+            if(source_BFS[i] == -1){source_depth++; continue;}
+            int target_depth = 0;
+            bool end_loop = false;
+            for(int j=0; j<target_BFS.size() && target_depth + source_depth < k; j++){
+                if(target_BFS[j] == -1){target_depth++; continue;}
+                if(K_neighborhood[i].find(j) == K_neighborhood[i].end()){
+                    end_loop = true;
+                    violating_edge = true;
+                    break;
+                }
+            }
+            if(end_loop){break;}
+        }
+
+
+        if(violating_edge){continue;}
+        
+        Final_graph[current_edge.first].push_back(current_edge.second);
+        Final_graph[current_edge.second].push_back(current_edge.first);        
+
+    }
+
+}
+
 
 
 void Prof_Alg(vector<set<int> >& old_K_neighborhood, vector<list<int> >& Final_graph, int k){

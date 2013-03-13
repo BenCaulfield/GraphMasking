@@ -137,10 +137,10 @@ int main(int argc, char* argv[]){
     set<int> a_set;
     int max_node = 0;
     //BAD FORM!!!!
-    if(in_str.peek() == 'n'){
+    /*if(in_str.peek() == 'n'){
         in_str >> s;
         while(s!="###"){in_str >> s;}
-    }
+    }*/
 
     //reads in all the edges, and creates the adjacency graph
     while(!in_str.eof()){
@@ -150,7 +150,8 @@ int main(int argc, char* argv[]){
         in_str >> s;
         int target = atoi(s.c_str());
 
-        list<int> l; set<int> a_set;
+        //list<int> l; set<int> a_set;
+       // cout << source << " " << target << "." << endl;
         while(Adjacency_graph.size() <= source){Adjacency_graph.push_back(l);}
 
         max_node = max(max_node, max(source, target));
@@ -190,9 +191,10 @@ int main(int argc, char* argv[]){
 
     for(int i=0; i<repeats; i++){
         if(profs){
-            Final_graph.insert(Final_graph.begin(), max_node+1, l);
-
-            Prof_Alg(K_neighborhood, Final_graph, k);
+            Final_graph.insert(Final_graph.begin(), K_neighborhood.size(), l);
+            cout << "A" << endl;
+            newProfs(K_neighborhood, Final_graph, k);
+            cout << "B" << endl;
         }
         else{
             my_algorithm(Adjacency_graph,  Final_graph, same_cliques);
