@@ -1,7 +1,12 @@
 #include "professors_algorithm.cpp"
 #include "my_algorithm.cpp"
+#include "merge_groups.cpp"
+#include "handle_overlap.cpp"
+#include <fstream>
 #include <map>
 #include <assert.h>
+
+
 
 //finds length of shortest path between two nodes in a graph (stops if path-length is less than given int)
 int node_distance(int n1, int n2, vector<list<int> >& Graph, int k){
@@ -23,36 +28,6 @@ void Print_Neighborhood(vector<set<int> >& neighborhood, ofstream& out){
             out << i << " " << *set_itr << endl;
         }
     }
-}
-
-//Finds amount of overlap between two sets using formula: |A intersect B| / |A union B|
-double Overlap_Factor(set<int>& adj1, set<int>& adj2, int& problem){
-    if(adj1.size() == adj2.size() && adj1.size() == 0){return 1;}
-    set<int>::iterator itr1 = adj1.begin();
-    set<int>::iterator itr2 = adj2.begin();
-    int intersection_size = 0;
-    while(itr1 != adj1.end() && itr2 != adj2.end()){
-        if(*itr1 < *itr2){itr1++; }
-        else if(*itr1 > *itr2){problem=*itr2; itr2++; cout << "!"; }
-        else {intersection_size++; itr1++; itr2++;}
-    }
-    double return_val = (double)intersection_size / (double)((adj1.size() + adj2.size()) - intersection_size);
-    return return_val;
-}
-
-//For each node n in K1 and K2, outputs the overlap between the set of nodes adjacent to n in each graph.
-void output_overlap(ofstream& out, vector<set<int> >& K1, vector<set<int> >& K2, vector<list<int> > graph, int k){
-  double average;
-  for(int i=1; i<K1.size(); i++){
-      int problem = -1;
-      //cout << i << " ";
-      double overlap = Overlap_Factor(K1[i], K2[i], problem);
-      if(problem != -1){cout << i << " " << problem << endl; node_distance(i, problem, graph, k);}
-      out << i << " " << overlap << endl;
-      average += overlap;
-    }
-    average /= (K1.size() - 1);
-    out << "average_overlap "<<  average << endl;
 }
 
 //used to track how often an edge appears (when looking at multiple graphs over same node-set)
@@ -105,21 +80,13 @@ int Find_swap_edge(int s1, int s2, vector<list<int> >& Final_graph){
 }
 //bool operator< (pair<int,int>& p1, pair<int,int>& p2){return p1.first<p2.first || (p1.first==p2.first && p1.second<p2.second);}
 
+
 //ASSUMES THAT INPUT FILE WILL BE IN THE FORMAT OF THE RANDOM NETWORK GRAPHS
 int main(int argc, char* argv[]){
     srand(clock());
+    ofstream adj_dif("adjacency_group_differences.txt");
 
-    /*int k = atoi(argv[1]);
-    string network_inputs;
-    network_inputs += "./benchmark ";
-    for(int i=2; i < argc; i++){
-        network_inputs += argv[i];
-        network_inputs += " ";
-    }
-    //system("cd ./binary_networks");
-    system("network_inputs");
-    ifstream in_str("network.dat", ifstream::in);
-    */
+    //reads in arguments
     if(argc != 4 && argc != 5 && argc != 6){cout << "Please include input file, k value, profs/my, output type (overlap, edge_frequency, both, neither), [and maybe repeats] \n"; return 0;}
     ifstream in_str(argv[1]);
     int k = atoi(argv[2]);
@@ -159,13 +126,15 @@ int main(int argc, char* argv[]){
     }
 
     vector<set<int> > K_neighborhood;
-    Create_K_Graph(Adjacency_graph, k, K_neighborhood);
+    vector<set<int> > Kplus1_Borders;
+    Create_K_Graph_Borders(Adjacency_graph, k, K_neighborhood, Kplus1_Borders);
     list<frequency_edge> edge_frequencies;
     vector<list<int> > K_neighborhood_lists;
     vector<int> clique_lookup;
     vector<int> group_size;
     vector<int> temp_vec;
     vector<vector<int> >same_cliques; same_cliques.push_back(temp_vec);
+
 
     //outputs k_neighborhood:
     ofstream K_neigh_out("K_neighborhood");
@@ -197,37 +166,18 @@ int main(int argc, char* argv[]){
             cout << "B" << endl;
         }
         else{
-            my_algorithm(Adjacency_graph,  Final_graph, same_cliques);
-
-            /*
-            //edits results of my algorithm based on singleton edges, etc.
-            list<int> temp;
-            //vector<list<int> > New_final(Final_graph.size(),temp);
-            for(int i=0; i<Final_graph.size(); i++){
-                list<int>::iterator itr = Final_graph[i].begin();
-                while(itr != Final_graph[i].end()){
-                    if(i > *itr){itr++; continue;}
-                    if((group_size[i]==1 || group_size[*itr]==1) and rand()%2==0 and false){
-                        int itr_val = *itr;
-                        itr = Final_graph[i].erase(itr);
-                        Final_graph[itr_val].remove(i);
-                    }
-                    else{itr++;}
-                    else if(((group_size[i]==1 && group_size[*itr]==1) || (clique_lookup[i]==clique_lookup[*itr] && group_size[i]==2))
-                             && rand()%1==0){
-                        int itr_val = *itr; itr++;
-                        int new_node = Find_swap_edge(i, itr_val, Final_graph);
-                        int nn2 = Find_swap_edge(itr_val, i, Final_graph);
-                        if(new_node != -1){
-                           exchange_edge(Final_graph, i, itr_val, new_node);
-                        }
-                        else if(nn2 != -1){exchange_edge(Final_graph, itr_val, i, nn2);}
-                    }
-                    else{itr++;}
-               }
+            vector<vector<int> > temp_same_cliques = same_cliques;
+            cout << "A" << endl;
+            merge_similar_adj_groups(70, 20000000, Adjacency_graph, K_neighborhood, temp_same_cliques);
+            ofstream merged_adj("merged_adj");
+            for(int i=0; i<temp_same_cliques.size(); i++){
+                for(int j=0; j<temp_same_cliques[i].size(); j++){
+                    merged_adj << temp_same_cliques[i][j] << " ";
+                }
+                merged_adj << endl;
             }
-            Final_graph = New_final;
-            for(int i=0; i<Final_graph.size(); i++){Final_graph[i].sort();}*/
+            cout << "B" << endl;
+            my_algorithm(Adjacency_graph,  Final_graph, temp_same_cliques);
         }
 
         //updates list of edge-frequencies based on Final_graph
@@ -249,8 +199,17 @@ int main(int argc, char* argv[]){
     if(output_type == "both" || output_type == "overlap"){
         ofstream overlap_out("overlap.txt");
         vector<set<int> > New_K_neighborhood;
+        vector<set<int> > New_Borders;
+        Create_K_Graph_Borders(Final_graph, k, New_K_neighborhood, New_Borders);
+        modified_output_overlap(overlap_out, K_neighborhood, New_K_neighborhood, Kplus1_Borders, New_Borders, k);
+                /*
+        vector<set<int> > Kplus1_Graph;
+        vector<set<int> > New_Kplus1_Graph;
+        Create_K_Graph(Adjacency_graph, k+3, Kplus1_Graph);
+        Create_K_Graph(Final_graph, k+3, New_Kplus1_Graph);
         Create_K_Graph(Final_graph, k, New_K_neighborhood);
-        output_overlap(overlap_out, K_neighborhood, New_K_neighborhood, Final_graph, k);//note, the two may not be the same size
+        output_overlap(overlap_out, K_neighborhood, New_K_neighborhood, Final_graph, k);//note, the two may not be the same size*/
+       /// modified_output_overlap(overlap_out, K_neighborhood, New_K_neighborhood, Kplus1_Graph, New_Kplus1_Graph, k);
     }
 
     //outputs frequencies from edge_frequencies
@@ -266,14 +225,15 @@ int main(int argc, char* argv[]){
 
         //Types of "const-edges"
         //ofstream const_out("constant_edges.txt");
-        int inner_edges = 0; //num edges between two nodes in the same group of cliques
+        int const_inner_edges = 0; //num edges between two nodes in the same adj_group that are constant
+        int all_inner_edges = 0;
         int complete_group_size = 0;
-        int outer_edges = 0; //num edges between two nodes differing by at least one clique
-        int full_singletons = 0;
-        int constr_half_singletons = 0;
-        int half_singletons = 0;
-        int potential_fulls = 0;
-        int double_groups = 0;
+        int outer_edges = 0; //num edges between two nodes of different adj_groups
+        int full_singletons = 0; //edges between two singelton adj_groups
+        int const_half_singletons = 0; //half singletons that are constant
+        int half_singletons = 0; //edges where one node is in singleton adj-group
+        int potential_fulls = 0; //number of k_neighborhood edges between singleton-adj-groups
+        int double_groups = 0; //adj_groups with just two nodes
 
         if(!profs){
             //cout << "C" << endl;
@@ -285,11 +245,12 @@ int main(int argc, char* argv[]){
                 if(group_size[itr->node1]==1 && group_size[itr->node2]==1){/*cout << "@" << endl;*/full_singletons++;}
                 else if(group_size[itr->node1]==1 || group_size[itr->node2]==1){half_singletons++;}
                 //cout << "1" << endl;
+                if(clique_lookup[itr->node1]==clique_lookup[itr->node2]){all_inner_edges++;}
                 if(itr -> frequency == repeats){
-                    if(clique_lookup[itr->node1]==clique_lookup[itr->node2]){/*cout << "2.1" << endl;*/ inner_edges++; complete_group_size += group_size[itr->node1];}
+                    if(clique_lookup[itr->node1]==clique_lookup[itr->node2]){/*cout << "2.1" << endl;*/ const_inner_edges++; complete_group_size += group_size[itr->node1];}
                     else{ //cout << "2.2" << endl;
                         outer_edges++;
-                        if(group_size[itr->node1]==1 ^ group_size[itr->node2]==1){constr_half_singletons++;} //^ = XOR
+                        if(group_size[itr->node1]==1 ^ group_size[itr->node2]==1){const_half_singletons++;} //^ = XOR
                     }
                 }
             }
@@ -307,21 +268,27 @@ int main(int argc, char* argv[]){
             //cout << "E" << endl;
         }
 
-        freq_out << edge_frequencies.size() << " " << frequencies.back() << endl;
+        adj_dif << "________________________________________" << endl;
+        sample_adj_dif(Adjacency_graph, K_neighborhood, same_cliques, adj_dif);
+        //freq_out << "total_edges constant_edges inner_edges double_groups avg_complete_group outer_edges 
+        //potential_fulls full_singletons constr_half_singletons half_singletons" <<endl;
+        freq_out << edge_frequencies.size() << " " << frequencies.back() << " " << all_inner_edges << " " << const_inner_edges << " " << double_groups << " "
+        << (double)complete_group_size / const_inner_edges << " " << outer_edges << " " << potential_fulls << " " << full_singletons << 
+        " " << const_half_singletons << " " << half_singletons << " " << endl;
         freq_out << "repeats: " << repeats << endl;
         freq_out << "k-value: " << k << endl;
         freq_out << "# of edges: " << edge_frequencies.size() << endl;
         freq_out << "# of constant edges: " << frequencies.back() << endl;
         freq_out << "--------------------" << endl;
         if(!profs){
-            freq_out << "inner edges: " << inner_edges << endl;
+            freq_out << "const inner edges: " << const_inner_edges << endl;
             freq_out << "double groups:  " << double_groups<< endl;
-            freq_out << "average complete group size: " << (double)complete_group_size / inner_edges << endl;
+            freq_out << "average complete group size: " << (double)complete_group_size / const_inner_edges << endl;
             freq_out << "--------------------" << endl;
             freq_out << "outer edges: " << outer_edges << endl;
             freq_out << "potential full singletons " << potential_fulls << endl;
             freq_out << "full-singleton edges: " << full_singletons << endl;
-            freq_out << "constrained half-singleton edges: " << constr_half_singletons << endl;
+            freq_out << "constrained half-singleton edges: " << const_half_singletons << endl;
             freq_out << "half-singleton edges: " << half_singletons << endl;
         }
         for(int i=1; i<frequencies.size(); i++){
@@ -341,3 +308,38 @@ int main(int argc, char* argv[]){
 
 }
 
+
+
+
+
+/*
+    void remove_singletons(vector<list<int> >& Final_graph, vector<int>& group_size){
+            //edits results of my algorithm based on singleton edges, etc.
+            list<int> temp;
+            //vector<list<int> > New_final(Final_graph.size(),temp);
+            for(int i=0; i<Final_graph.size(); i++){
+                list<int>::iterator itr = Final_graph[i].begin();
+                while(itr != Final_graph[i].end()){
+                    if(i > *itr){itr++; continue;}
+                    if((group_size[i]==1 || group_size[*itr]==1) and rand()%2==0){
+                        int itr_val = *itr;
+                        itr = Final_graph[i].erase(itr);
+                        Final_graph[itr_val].remove(i);
+                    }
+                    else{itr++;}
+                    else if(((group_size[i]==1 && group_size[*itr]==1) || (clique_lookup[i]==clique_lookup[*itr] && group_size[i]==2))
+                             && rand()%1==0){
+                        int itr_val = *itr; itr++;
+                        int new_node = Find_swap_edge(i, itr_val, Final_graph);
+                        int nn2 = Find_swap_edge(itr_val, i, Final_graph);
+                        if(new_node != -1){
+                           exchange_edge(Final_graph, i, itr_val, new_node);
+                        }
+                        else if(nn2 != -1){exchange_edge(Final_graph, itr_val, i, nn2);}
+                    }
+                    else{itr++;}
+               }
+            }
+            Final_graph = New_final;
+            for(int i=0; i<Final_graph.size(); i++){Final_graph[i].sort();}
+        }*/

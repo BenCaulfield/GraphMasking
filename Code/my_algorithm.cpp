@@ -79,6 +79,43 @@ void my_algorithm(vector<list<int> >& Original_Graph, vector<list<int> >& Final_
  long int t5 = clock() - current_time;
  //cout << t1 << " " << t4 << " " << t5 << endl;
 }
+
+
+void erase_full_singletons(vector<list<int> >& Final_graph, vector<int>& group_size){
+            //SUPER EXPERIMENT !!!!! erases full-singletons
+            list<pair<int,int> > erasing_edges;
+            for(int i=0; i<Final_graph.size(); i++){
+                //continue;
+               // if(group_size[i]!=1){continue;}
+                list<int>::iterator itr=Final_graph[i].begin();
+                while(group_size[i]!=1 && itr != Final_graph[i].end()){
+                    if(group_size[*itr]==1 && rand()%20==0){ 
+                        pair<int,int> temp(*itr, i);
+                        pair<int,int> back_temp(i, *itr);
+                        itr = Final_graph[i].erase(itr);
+                        erasing_edges.push_back(temp);
+                        //erasing_edges.push_back(back_temp);
+                        continue;
+                    }
+                    itr++;
+                }
+            }
+            erasing_edges.sort();
+            cout << "erasing edges: " << erasing_edges.size() << endl;
+            //for(list<pair<int,int> >::iterator itr=erasing_edges.begin(); itr!=erasing_edges.end(); itr++){cout << itr->first << " " <<itr->second << endl;}
+            list<pair<int,int> >::iterator erase_itr = erasing_edges.begin();
+            for(int i=0; i<Final_graph.size(); i++){
+                list<int>::iterator itr=Final_graph[i].begin();
+                while(itr!=Final_graph[i].end() && erase_itr != erasing_edges.end()){
+                    pair<int,int> temp2(i, *itr);
+                    if(erase_itr->first==i && erase_itr->second==*itr){erase_itr = erasing_edges.erase(erase_itr);}
+                    else if(*erase_itr < temp2){erase_itr++;}
+                    else {itr++;}
+                }
+                if(erase_itr == erasing_edges.end()){break;}
+            }
+}
+
 /*
 //NOTE THAT CURRENT CLIQUE IS (NOT) PASSED BY REFERENCE!!!!!
 void cliques_helper(const vector<list<int> >& K_neighborhood, list<int>& current_clique, list<int>::iterator current_position, list<list<int> >& cliques){

@@ -1,12 +1,9 @@
-#include <iostream>
 #include <fstream>
-#include <vector>
 #include <time.h>
 #include <cstdlib>
-#include <set>
-#include <list>
 #include <algorithm>
 #include <assert.h>
+#include "get_neighborhoods.cpp"
 //#include "BFS.cpp"
 
 using namespace std;
@@ -70,55 +67,6 @@ void delete_working_element(vector<working_edge>& working_list, int position){
     working_list[position].back_itr1 -> working_position = position;
     working_list[position].back_itr2 -> working_position = position;
     working_list.pop_back();
-}
-
-//takes in a graph, an int representing the node the BFS starts from, the depth the BFS goes, and a vector of bools all set to false
-//the vector of bools are set to true when a node is visited, so the BFS doesn't visit the same node twice.
-//returns a vector of ints, representing the result of the BFS
-//the different depths for the BFS are seperated by -1s. 
-//ex: [0, -1, 1, 2, -1, 3, 4] is a BFS from 0, with 1 & 2 at depth 1, and 3 & 4 at depth 2
-vector<int> BFS(vector<list<int> >& graph, int start, int depth, vector<bool>& viewed_nodes){
-    vector<int> queue;
-    if (graph[start].empty()){return queue;}
-    int position = 0;
-    viewed_nodes[start] = true;
-    queue.push_back(start);
-    queue.push_back(-1);
-    while(depth > 0){
-        while(queue[position] != -1){
-            for(list<int>::iterator list_itr = (graph[queue[position]]).begin(); list_itr != (graph[queue[position]]).end(); list_itr++){
-                if(!viewed_nodes[*list_itr]){
-                    queue.push_back(*list_itr);
-                    viewed_nodes[*list_itr] = true;
-                }
-            }
-            position++;
-        }
-        queue.push_back(-1);
-        position++;
-        depth--;
-    }
-    for(int i=0; i<queue.size(); i++){
-        if(queue[i] != -1){
-            viewed_nodes[queue[i]] = false;
-        }
-    }
-    viewed_nodes[start] = false;
-    return queue;
-}
-
-//Creates the K_neighborhood graph
-void Create_K_Graph(vector<list<int> >& Adjacency_Graph, int k,  vector<set<int> >& K_neighborhood_Graph){
-    pair<int, int> temp_pair;
-    vector<bool> viewed_nodes(Adjacency_Graph.size(), false);
-    for(int i=0; i<Adjacency_Graph.size(); i++){
-        vector<int> queue = BFS(Adjacency_Graph, i, k, viewed_nodes);
-        set<int> k_adjs;
-        for(int j=1; j < queue.size(); j++){
-            if(queue[j] != -1){k_adjs.insert(queue[j]);}
-        }
-        K_neighborhood_Graph.push_back(k_adjs);
-    }
 }
 
 
