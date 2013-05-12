@@ -76,10 +76,12 @@ std::vector<std::vector<int> > kSort(std::vector<std::set<int> > k_neighborhood_
 	kTree tree;
 	for(unsigned int i = 0; i < k_neighborhood_vecs.size(); i++)
 	{
-		tree.insert(k_neighborhood_vecs[i]);
+		tree.insert(k_neighborhood_vecs[i], i);
 	}
 	
 	std::vector<std::vector<int> > sorted = tree.sort();
+	
+	std::vector<int> isorted = tree.isort();
 	
 	for(unsigned int i = 0; i < sorted.size(); i++)
 	{
