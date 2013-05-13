@@ -107,7 +107,7 @@ void merge_similar_adj_groups(int max_diff, int total_diff, vector<list<int> >& 
             }      */
         }
        // cout << min_diff << "::" << min_diff2 << " " << endl;
-        if(min_pos2 != -1 && rand() % 2 == 1){min_pos = min_pos2; min_diff = min_diff2;} //randomly uses second-most similar node instead of first;
+        //if(min_pos2 != -1 && rand() % 2 == 1){min_pos = min_pos2; min_diff = min_diff2;} //randomly uses second-most similar node instead of first;
         if(min_pos != -1){
             swaps << i << " " << min_pos << endl;
             total_changes++;
