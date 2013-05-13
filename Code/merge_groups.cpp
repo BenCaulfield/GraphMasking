@@ -5,6 +5,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <algorithm>
+#include <map>
+#include <pair>
 using namespace std;
 
 //finds total differences between k_neighborhoods of two nodes, ignoring the nodes, themselves.
@@ -123,4 +125,16 @@ void merge_similar_adj_groups(int max_diff, int total_diff, vector<list<int> >& 
     }
 }
 
-
+void wesley_merge(vector<list<int> >& graph, vector<set<int> >& K_neighborhoods, vector<vector<int> >& adj_groups)
+{
+    std::map<int,std::pair<int,int> > swap;
+    for(unsigned int i = 0; i < 10; i++)
+    {
+        swap.clear();
+        for(unsigned int j = 0; j < K_neighborhoods.size(); j++)
+        {
+            swap.insert(std::pair<int,std::pair<int,int> >(find_group_difference(j, k_neighborhoods[j].begin()*, k_neighborhoods[j], k_neighborhoods[k_neighborhoods[j].begin()*]),std::pair<int,int>(j,k_neighborhoods[j].begin()*));        
+        }
+        //Merge_two_groups(adj_groups,)
+    }
+}
