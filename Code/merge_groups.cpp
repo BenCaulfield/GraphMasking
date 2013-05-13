@@ -130,11 +130,20 @@ void wesley_merge(vector<list<int> >& graph, vector<set<int> >& K_neighborhoods,
     std::map<int,std::pair<int,int> > swap;
     for(unsigned int i = 0; i < 10; i++)
     {
+        vector<bool> altered_node(graph.size(), false);
+        vector<int> adj_map(graph.size(), -1); //adj_map[i] = j means that the adj_group for i is in same_cliques[j]
+        for(int i=0; i<same_cliques.size(); i++){
+            for(int j=0; j<same_cliques[i].size(); j++){
+                //cout << same_cliques[i][j] << " ";
+                adj_map[same_cliques[i][j]] = i;
+            }
+        }
+            
         swap.clear();
         for(unsigned int j = 0; j < K_neighborhoods.size(); j++)
         {
             swap.insert(std::pair<int,std::pair<int,int> >(find_group_difference(j, k_neighborhoods[j].begin()*, k_neighborhoods[j], k_neighborhoods[k_neighborhoods[j].begin()*]),std::pair<int,int>(j,k_neighborhoods[j].begin()*));        
         }
-        //Merge_two_groups(adj_groups,)
+        Merge_two_groups(adj_groups,adj_map,altered_node, i, adj_map[i]);
     }
 }
