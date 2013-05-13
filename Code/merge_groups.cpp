@@ -52,26 +52,39 @@ void sample_adj_dif(vector<list<int> >& graph, vector<set<int> >& K_neighborhood
     adj_dif << "average: " << (double)dif_sum/100 << endl;
 }
 
+//merges two adjacency groups together
+void Merge_two_groups(vector<vector<int> >& same_cliques, vector<int>& adj_map, vector<bool>& altered_node, int ind1, int ind2){
+    for(int j=0; j<same_cliques[ind2].size(); j++){
+        int adj_node = same_cliques[ind2][j];
+        same_cliques[adj_map[ind1]].push_back(adj_node);
+        adj_map[adj_node] = adj_map[ind1];
+        altered_node[adj_node] = true;
+    }
+    sort(same_cliques[adj_map[ind1]].begin(), same_cliques[adj_map[ind1]].end());
+    same_cliques[ind2].clear();
+    //moves back vector to ind2 and pops back;
+    for(int j=0; j<same_cliques.back().size(); j++){
+        int adj_node = same_cliques.back()[j];
+        same_cliques[ind2].push_back(adj_node);
+        adj_map[adj_node] = ind2;
+    }
+    sort(same_cliques[ind2].begin(), same_cliques[ind2].end());
+    same_cliques.pop_back();
+}
+
 void merge_similar_adj_groups(int max_diff, int total_diff, vector<list<int> >& graph, vector<set<int> >& K_neighborhood, vector<vector<int> >& same_cliques){
     vector<bool> altered_node(graph.size(), false);
     //cout <<"ksize: " << K_neighborhood.size() << endl; 
-
-  /*  for(int i=0; i<same_cliques.size(); i++){
-        cout << i << ": ";
-        for(int j=0; j<same_cliques[i].size(); j++){
-            cout << same_cliques[i][j] << " ";
-        }
-        cout << endl;
-    }*/
-    
+  
     vector<int> adj_map(graph.size(), -1); //adj_map[i] = j means that the adj_group for i is in same_cliques[j]
     for(int i=0; i<same_cliques.size(); i++){
         for(int j=0; j<same_cliques[i].size(); j++){
             //cout << same_cliques[i][j] << " ";
             adj_map[same_cliques[i][j]] = i;
         }
-       // cout << endl;
     }
+
+    ofstream swaps("Swaps");
 
     //this is a  merging of similar groups. finds n1 & n2
     int current_diff=0;
@@ -96,46 +109,18 @@ void merge_similar_adj_groups(int max_diff, int total_diff, vector<list<int> >& 
        // cout << min_diff << "::" << min_diff2 << " " << endl;
         if(min_pos2 != -1 && rand() % 2 == 1){min_pos = min_pos2; min_diff = min_diff2;} //randomly uses second-most similar node instead of first;
         if(min_pos != -1){
+            swaps << i << " " << min_pos << endl;
             total_changes++;
             altered_node[i] = true;
             altered_node[min_pos] = true;
-            cout << i << " " << min_pos << " " << min_diff << endl;
+           //cout << i << " " << min_pos << " " << min_diff << endl;
             current_diff += min_diff;
-            //cout << "G" << endl;
+
             //merges two adj_groups
-            int former_adj_pos = adj_map[min_pos];
-            //c//out << "size: " << same_cliques[former_adj_pos].size() << endl;
-            //cout << adj_map[i] << " " << former_adj_pos << endl;
-            for(int j=0; j<same_cliques[former_adj_pos].size(); j++){
-                int adj_node = same_cliques[former_adj_pos][j];
-                same_cliques[adj_map[i]].push_back(adj_node);
-                adj_map[adj_node] = adj_map[i];
-                altered_node[adj_node] = true;
-            }
-            sort(same_cliques[adj_map[i]].begin(), same_cliques[adj_map[i]].end());
-            same_cliques[former_adj_pos].clear();
-            //cout << "H" << endl;
-            //moves back vector to former_adj_pos and pops back;
-            for(int j=0; j<same_cliques.back().size(); j++){
-                int adj_node = same_cliques.back()[j];
-                same_cliques[former_adj_pos].push_back(adj_node);
-                adj_map[adj_node] = former_adj_pos;
-            }
-            sort(same_cliques[former_adj_pos].begin(), same_cliques[former_adj_pos].end());
-            same_cliques.pop_back();
-            return;
+            Merge_two_groups(same_cliques, adj_map, altered_node, i, adj_map[min_pos]);
+
         }   
     }
-   // cout << current_diff << endl;   
-   // cout << "changes: " << total_changes << endl;         
-
-   /* cout << "________________________________________" << endl;
-    for(int i=0; i<same_cliques.size(); i++){
-        cout << i << ": ";
-        for(int j=0; j<same_cliques[i].size(); j++){
-            cout << same_cliques[i][j] << " ";
-        }
-        cout << endl;
-    }*/
-
 }
+
+
