@@ -6,7 +6,7 @@
 #include <cstdlib>
 #include <algorithm>
 #include <map>
-#include <pair>
+#include <utility>
 using namespace std;
 
 //finds total differences between k_neighborhoods of two nodes, ignoring the nodes, themselves.
@@ -134,7 +134,7 @@ void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int>
         adj_groups.push_back(vadj_groups[i]);
     }
     std::vector<std::list<std::vector<int> >::iterator> adj_map;
-    std::list<std::vector<int> >::iterator temp_itr
+    std::list<std::vector<int> >::iterator temp_itr;
     for(unsigned int i = 0; i < iadj_map.size(); i++)
     {
         temp_itr = adj_groups.begin();
@@ -144,6 +144,9 @@ void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int>
         }
         adj_map.push_back(temp_itr);
     }
+    //above is compatibility converting for making adj_groups a list instead of a vector and making adj_map contain iterators instead of ints
+    
+    
     
     std::map<int,std::vector<std::pair<int,int> > > pot_merges;
     vector<bool> altered_node(graph.size(), false);
@@ -154,16 +157,16 @@ void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int>
     {
         for(std::list<int>::iterator itr = graph[i].begin(); itr != graph[i].end(); itr++)
         {
-            temp_diff = find_group_difference(i, itr*, k_neighborhoods[i], k_neighborhoods[itr*]);
+            temp_diff = find_group_difference(i, *itr, K_neighborhoods[i], K_neighborhoods[*itr]);
             if(pot_merges.find(temp_diff) == pot_merges.end())
             {
                 temp_vec.clear();
-                temp_vec.push_back(std::pair<int,int>(i,itr*));
+                temp_vec.push_back(std::pair<int,int>(i,*itr));
                 pot_merges.insert(std::pair<int,std::vector<std::pair<int,int> > >(temp_diff,temp_vec));
             }
             else
             {
-                pot_merges.find(temp_diff) -> push_back(std::pair<int,int>(i,itr*));
+                pot_merges.find(temp_diff) -> second.push_back(std::pair<int,int>(i,*itr));
             }
         }
     }
@@ -177,14 +180,47 @@ void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int>
                 altered_node[itr -> second[i].first] = true;
                 altered_node[itr -> second[i].second] = true;
                 
-                Merge_two_groups(adj_groups,adj_map,altered_node, adj_map[itr -> second[i].first], adj_map[itr -> second[i].second]);
+                //compatibility start
+                vadj_groups.clear();
+    	for(std::list<std::vector<int> >::iterator itrk = adj_groups.begin(); itrk != adj_groups.end(); itrk++)
+		{
+			vadj_groups.push_back(*itrk);
+		}
+                iadj_map.clear();
+		    int temp_int;
+		    for(unsigned int k = 0; k < adj_map.size(); k++)
+		    {
+			temp_int = 0;
+			for(std::list<std::vector<int> >::iterator itrk = adj_groups.begin(); itrk != adj_map[k]; itrk++)
+			{
+			    temp_int++;
+			}
+			iadj_map.push_back(temp_int);
+		    }
+                //compatibility end
+                
+                Merge_two_groups(vadj_groups,iadj_map,altered_node, iadj_map[itr -> second[i].first], iadj_map[itr -> second[i].second]);
             }
         }
     }
     
+    
+    //below is compatibility converting for making vadj_groups a vector instead of a list and making iadj_map contain ints instead of iterators
     vadj_groups.clear();
     for(std::list<std::vector<int> >::iterator itr = adj_groups.begin(); itr != adj_groups.end(); itr++)
     {
-        vadj_groups.push_back(itr*);
+        vadj_groups.push_back(*itr);
     }
+    iadj_map.clear();
+    int temp_int;
+    for(unsigned int i = 0; i < adj_map.size(); i++)
+    {
+        temp_int = 0;
+        for(std::list<std::vector<int> >::iterator itr = adj_groups.begin(); itr != adj_map[i]; itr++)
+        {
+            temp_int++;
+        }
+        iadj_map.push_back(temp_int);
+    }
+    
 }
