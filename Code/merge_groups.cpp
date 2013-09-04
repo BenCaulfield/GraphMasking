@@ -126,7 +126,7 @@ void merge_similar_adj_groups(int max_diff, int total_diff, vector<list<int> >& 
 }
 
 //void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int> >& K_neighborhoods, std::list<std::vector<int> >& adj_groups, std::vector<std::list<std::vector<int> >::iterator> adj_map)
-void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int> >& K_neighborhoods, std::vector<std::vector<int> >& vadj_groups, std::vector<int> iadj_map)
+void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int> >& K_neighborhoods, std::vector<std::vector<int> >& vadj_groups, std::vector<int> iadj_map, int mergecap, bool can_remerge)
 {
     std::list<std::vector<int> > adj_groups;
     for(unsigned int i = 0; i < vadj_groups.size(); i++)
@@ -171,18 +171,20 @@ void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int>
         }
     }
     
+    int mergecount = 0;
+    
     for(std::map<int,std::vector<std::pair<int,int> > >::iterator itr = pot_merges.begin(); itr != pot_merges.end(); itr++)
     {
         for(unsigned int i = 0; i < itr -> second.size(); i++)
         {
-            if(altered_node[itr -> second[i].first] == false && altered_node[itr -> second[i].second] == false)
+            if(((altered_node[itr -> second[i].first] == false && altered_node[itr -> second[i].second] == false) || can_remerge) && mergecount <= mergecap)
             {
                 altered_node[itr -> second[i].first] = true;
                 altered_node[itr -> second[i].second] = true;
                 
                 //compatibility start
                 vadj_groups.clear();
-    	for(std::list<std::vector<int> >::iterator itrk = adj_groups.begin(); itrk != adj_groups.end(); itrk++)
+    		for(std::list<std::vector<int> >::iterator itrk = adj_groups.begin(); itrk != adj_groups.end(); itrk++)
 		{
 			vadj_groups.push_back(*itrk);
 		}
@@ -200,6 +202,8 @@ void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int>
                 //compatibility end
                 
                 Merge_two_groups(vadj_groups,iadj_map,altered_node, iadj_map[itr -> second[i].first], iadj_map[itr -> second[i].second]);
+                
+                mergecount++;
             }
         }
     }
