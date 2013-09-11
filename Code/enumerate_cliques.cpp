@@ -16,7 +16,7 @@ bool cliques_less(const pair<int, vector<int> >&v1, const pair<int, vector<int> 
     return v1.second < v2.second;
 }
 
-void get_cliques(vector<list<int> >& K_neighborhood, int k, vector<vector<int> >& same_cliques, vector<int>& clique_lookup, vector<int>& group_size){
+void get_cliques(vector<list<int> >& K_neighborhood, int k, vector<vector<int> >& same_cliques){
     long int current_time = clock();
     vector<list<int> > cliques;
 
@@ -139,17 +139,6 @@ void get_cliques(vector<list<int> >& K_neighborhood, int k, vector<vector<int> >
     }
     same_out << "lone nodes: " <<lone_nodes << endl;
     same_out << "total cliques: " << cliques.size() << endl;
-
-    //assembles clique_lookup (allows const-time checking if two nodes are in all same cliques)
-    //clique_lookup[i]=j if node i is in the jth element of k-cliques
-    clique_lookup.insert(clique_lookup.begin(), K_neighborhood.size(), 0);
-    group_size.insert(group_size.begin(), K_neighborhood.size(), 0);
-    for(int i=0; i<same_cliques.size(); i++){
-        for(int j=0; j<same_cliques[i].size(); j++){
-            clique_lookup[same_cliques[i][j]] = i;
-            group_size[same_cliques[i][j]] = same_cliques[i].size();
-        }
-    }
 
     cout << "get cliques: " << t1 << " " << t2 << " " << t3 << " " << t4 << endl;
 
