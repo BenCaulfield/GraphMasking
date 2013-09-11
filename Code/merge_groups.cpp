@@ -127,26 +127,113 @@ void merge_similar_adj_groups(int max_diff, int total_diff, vector<list<int> >& 
     }
 }
 
-/*
-void wesley_merge(vector<list<int> >& graph, vector<set<int> >& K_neighborhoods, vector<vector<int> >& adj_groups)
+//void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int> >& K_neighborhoods, std::vector<std::vector<int> >& vadj_groups, std::vector<int> iadj_map, int mergecap, bool can_remerge)
+void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int> >& K_neighborhoods, std::vector<std::vector<int> >& adj_groups, std::vector<int> adj_map, int mergecap, bool can_remerge)
 {
-    std::map<int,std::pair<int,int> > swap;
-    for(unsigned int i = 0; i < 10; i++)
+    /*
+    std::list<std::vector<int> > adj_groups;
+    for(unsigned int i = 0; i < vadj_groups.size(); i++)
     {
-        vector<bool> altered_node(graph.size(), false);
-        vector<int> adj_map(graph.size(), -1); //adj_map[i] = j means that the adj_group for i is in adj_groups[j]
-        for(int i=0; i<adj_groups.size(); i++){
-            for(int j=0; j<adj_groups[i].size(); j++){
-                //cout << adj_groups[i][j] << " ";
-                adj_map[adj_groups[i][j]] = i;
+        adj_groups.push_back(vadj_groups[i]);
+    }
+    std::vector<std::list<std::vector<int> >::iterator> adj_map;
+    std::list<std::vector<int> >::iterator temp_itr;
+    for(unsigned int i = 0; i < iadj_map.size(); i++)
+    {
+        temp_itr = adj_groups.begin();
+        for(unsigned int j = 0; j < iadj_map[i]; j++)
+        {
+            temp_itr++;
+        }
+        adj_map.push_back(temp_itr);
+    }
+    */
+    //above is compatibility converting for making adj_groups a list instead of a vector and making adj_map contain iterators instead of ints
+    
+    
+    
+    std::map<int,std::vector<std::pair<int,int> > > pot_merges;
+    vector<bool> altered_node(graph.size(), false);
+    int temp_diff;
+    std::vector<std::pair<int,int> > temp_vec;
+    
+    for(unsigned int i = 0; i < graph.size(); i++)
+    {
+        for(std::list<int>::iterator itr = graph[i].begin(); itr != graph[i].end(); itr++)
+        {
+            temp_diff = find_group_difference(i, *itr, K_neighborhoods[i], K_neighborhoods[*itr]);
+            if(pot_merges.find(temp_diff) == pot_merges.end())
+            {
+                temp_vec.clear();
+                temp_vec.push_back(std::pair<int,int>(i,*itr));
+                pot_merges.insert(std::pair<int,std::vector<std::pair<int,int> > >(temp_diff,temp_vec));
+            }
+            else
+            {
+                pot_merges.find(temp_diff) -> second.push_back(std::pair<int,int>(i,*itr));
             }
         }
-            
-        swap.clear();
-        for(unsigned int j = 0; j < K_neighborhoods.size(); j++)
-        {
-            swap.insert(std::pair<int,std::pair<int,int> >(find_group_difference(j, k_neighborhoods[j].begin()*, k_neighborhoods[j], k_neighborhoods[k_neighborhoods[j].begin()*]),std::pair<int,int>(j,k_neighborhoods[j].begin()*));        
-        }
-        Merge_two_groups(adj_groups,adj_map,altered_node, i, adj_map[i]);
     }
-}*/
+    
+    int mergecount = 0;
+    
+    for(std::map<int,std::vector<std::pair<int,int> > >::iterator itr = pot_merges.begin(); itr != pot_merges.end(); itr++)
+    {
+        for(unsigned int i = 0; i < itr -> second.size(); i++)
+        {
+            if(((altered_node[itr -> second[i].first] == false && altered_node[itr -> second[i].second] == false) || can_remerge) && mergecount <= mergecap)
+            {
+                altered_node[itr -> second[i].first] = true;
+                altered_node[itr -> second[i].second] = true;
+                
+                //compatibility start
+                /*
+                vadj_groups.clear();
+    		for(std::list<std::vector<int> >::iterator itrk = adj_groups.begin(); itrk != adj_groups.end(); itrk++)
+		{
+			vadj_groups.push_back(*itrk);
+		}
+                iadj_map.clear();
+		    int temp_int;
+		    for(unsigned int k = 0; k < adj_map.size(); k++)
+		    {
+			temp_int = 0;
+			for(std::list<std::vector<int> >::iterator itrk = adj_groups.begin(); itrk != adj_map[k]; itrk++)
+			{
+			    temp_int++;
+			}
+			iadj_map.push_back(temp_int);
+		    }
+		*/
+                //compatibility end
+                
+                //Merge_two_groups(vadj_groups,iadj_map,altered_node, iadj_map[itr -> second[i].first], iadj_map[itr -> second[i].second]);
+                Merge_two_groups(adj_groups,adj_map,altered_node, itr -> second[i].first, itr -> second[i].second);
+                
+                mergecount++;
+            }
+        }
+    }
+    
+    
+    //below is compatibility converting for making vadj_groups a vector instead of a list and making iadj_map contain ints instead of iterators
+    /*
+    vadj_groups.clear();
+    for(std::list<std::vector<int> >::iterator itr = adj_groups.begin(); itr != adj_groups.end(); itr++)
+    {
+        vadj_groups.push_back(*itr);
+    }
+    iadj_map.clear();
+    int temp_int;
+    for(unsigned int i = 0; i < adj_map.size(); i++)
+    {
+        temp_int = 0;
+        for(std::list<std::vector<int> >::iterator itr = adj_groups.begin(); itr != adj_map[i]; itr++)
+        {
+            temp_int++;
+        }
+        iadj_map.push_back(temp_int);
+    }
+    */
+    
+}
