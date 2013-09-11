@@ -5,38 +5,10 @@
 
 std::vector<std::set<int> > generate();
 std::vector<std::vector<int> > kSort(std::vector<std::set<int> > k_neighborhood_sets);
+typedef std::list<std::vector<int> >::iterator adj_itr; 
 
 
-/*std::vector<std::set<int> > generate()
-  std::set<int> s;
-	std::vector<std::set<int> > v;
-	
-	s.insert(1);
-	s.insert(2);
-	s.insert(3);
-	v.push_back(s);
-	s.clear();
-	
-	s.insert(9);
-	s.insert(10);
-	s.insert(11);
-	s.insert(12);
-	s.insert(13);
-	v.push_back(s);
-	s.clear();
-	
-	s.insert(4);
-	s.insert(5);
-	s.insert(6);
-	s.insert(7);
-	s.insert(8);
-	v.push_back(s);
-	s.clear();
-	
-	return v;
-}*/
-
-void kSort(std::vector<std::set<int> > k_neighborhood_sets, std::vector<std::vector<int> >& adj_groups)
+void kSort(std::vector<std::set<int> >& k_neighborhood_sets, std::list<std::vector<int> >& adj_groups, vector<adj_itr>& adj_map)
 {
 	std::vector<std::vector<int> > k_neighborhood_vecs;
 	std::vector<int> tempvec;
@@ -63,6 +35,8 @@ void kSort(std::vector<std::set<int> > k_neighborhood_sets, std::vector<std::vec
 	std::vector<int> node_lookup = tree.isort();
 	
 	int sort_ind = 0;
+	adj_map.clear();
+	adj_map.insert(adj_map.begin(), k_neighborhood_sets.size(), adj_groups.begin());
 	std::vector<int> current_group; current_group.push_back(node_lookup[0]);
 	while(sort_ind+1 < sorted.size()){
 		bool equal = true;
@@ -86,4 +60,10 @@ void kSort(std::vector<std::set<int> > k_neighborhood_sets, std::vector<std::vec
 		sort_ind++;
 	}
 	adj_groups.push_back(current_group);
+
+	for(std::list<std::vector<int> >::iterator itr = adj_groups.begin(); itr != adj_groups.end(); itr++){
+		for(int i=0; i<(*itr).size(); i++){
+			adj_map[(*itr)[i]] = itr;
+		}
+	}
 }
