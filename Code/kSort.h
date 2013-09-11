@@ -6,7 +6,7 @@ std::vector<std::vector<int> > combine(std::vector<std::vector<int> > vec1, std:
 class kNode
 {
   public:
-  	kNode()
+		kNode()
 		{
 			diff = -1;
 			left = NULL;
