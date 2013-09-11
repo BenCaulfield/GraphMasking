@@ -8,6 +8,9 @@
 
 using namespace std;
 
+typedef std::list<std::vector<int> >::iterator adj_itr;
+
+
 void print_cliques(vector<list<int> >& cliques){
     ofstream out("cliques.txt");
     out << "Number of cliques: " << cliques.size() << endl;
@@ -37,15 +40,15 @@ bool operator==(vector<int>& v1, vector<int>&v2){
 
 void randomize_vector(vector<int>& v){
     for(int i=v.size()-1; i>0; i--){
-        int pos = rand() % i;
+        int pos = rand() % (i+1); //WAS JUST i BEFORE, WHY?
+        //cout << "um" <<  rand() << endl;
         int val = v[pos];
         v[pos] = v[i];
         v[i] = val;
     }
 }
 
-void my_algorithm(vector<list<int> >& Original_Graph, vector<list<int> >& Final_Graph, vector<vector<int> >& same_cliques){
-
+void my_algorithm(vector<list<int> >& Original_Graph, vector<list<int> >& Final_Graph, list<vector<int> >& adj_groups){
  long int current_time = clock();
 
  long int t1 = clock() - current_time;
@@ -54,11 +57,11 @@ void my_algorithm(vector<list<int> >& Original_Graph, vector<list<int> >& Final_
 
  //assembles name_switches. name_switches[i] = j means that node i will be changed to node j in the new graph
  vector<int> name_switches(Original_Graph.size(), 0);
- for(int i=0; i<same_cliques.size(); i++){
-     vector<int> randomized = same_cliques[i];
+ for(adj_itr i=adj_groups.begin(); i!=adj_groups.end(); i++){
+     vector<int> randomized = *i;
      randomize_vector(randomized);
      for(int j=0; j<randomized.size(); j++){
-         name_switches[same_cliques[i][j]] = randomized[j];
+         name_switches[(*i)[j]] = randomized[j];
      }
  }
 
@@ -89,7 +92,7 @@ void erase_full_singletons(vector<list<int> >& Final_graph, vector<int>& group_s
                // if(group_size[i]!=1){continue;}
                 list<int>::iterator itr=Final_graph[i].begin();
                 while(group_size[i]!=1 && itr != Final_graph[i].end()){
-                    if(group_size[*itr]==1 && rand()%20==0){ 
+                    if(group_size[*itr]==1 && rand()%20==0){
                         pair<int,int> temp(*itr, i);
                         pair<int,int> back_temp(i, *itr);
                         itr = Final_graph[i].erase(itr);
