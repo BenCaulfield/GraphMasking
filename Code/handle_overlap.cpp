@@ -44,21 +44,25 @@ void Modified_Overlap_Factor(set<int>& a1, set<int>& a2, set<int>& b1, set<int>&
     vector<int> missing_from_a1;
     vector<int> missing_from_a2;
     int intersection_size = 0;
+
+    //finds all nodes that are in one neighborhood but not the other.
     while(itr1 != a1.end() && itr2 != a2.end()){
-        if(*itr1 < *itr2){itr1++; missing_from_a2.push_back(*itr1);} 
-        else if(*itr1 > *itr2){itr2++; missing_from_a1.push_back(*itr2);}
+        if(*itr1 < *itr2){missing_from_a2.push_back(*itr1); itr1++;} 
+        else if(*itr1 > *itr2){missing_from_a1.push_back(*itr2); itr2++;}
         else {intersection_size++; itr1++; itr2++;}
     }
-    //for(int i=0; i<missing_from_a1.size(); i++){cout << missing_from_a1[i] << " ";} cout << endl;
-    //for(set<int>::iterator titr = b1.begin(); titr!=b1.end(); titr++){cout << *titr << " ";} cout << endl;
-    //for(int i=0; i<missing_from_a2.size(); i++){cout << missing_from_a2[i] << " ";} cout << endl;
-    //for(set<int>::iterator titr = b2.begin(); titr!=b2.end(); titr++){cout << *titr << " ";} cout << endl;
+    while(itr1 != a1.end()){missing_from_a2.push_back(*itr1); itr1++;}
+    while(itr2 != a2.end()){missing_from_a1.push_back(*itr2); itr2++;}
+
+    //checks if nodes missing from a1 are in b1
     int in_b1=0; int miss_ind=0;
     while(bitr1 != b1.end() && miss_ind != missing_from_a1.size()){
       if(missing_from_a1[miss_ind] > *bitr1){bitr1++;}
       else if(missing_from_a1[miss_ind] < *bitr1){miss_ind++;}
       else{in_b1++; miss_ind++; bitr1++;} 
     }
+
+    //checks if nodes missing from a2 are in b2
     int in_b2=0; miss_ind=0;
     while(bitr2 != b2.end() && miss_ind != missing_from_a2.size()){
       if(missing_from_a2[miss_ind] > *bitr2){bitr2++;}
@@ -66,8 +70,7 @@ void Modified_Overlap_Factor(set<int>& a1, set<int>& a2, set<int>& b1, set<int>&
       else{in_b2++; miss_ind++; bitr2++;} 
     }
     overlap = (double)intersection_size / (double)((a1.size() + a2.size()) - intersection_size);
-    //cout << "in_borders: " << in_b1 << " " << in_b2 << endl;
-    loose_overlap = (double)(intersection_size + in_b2 + in_b1)/(double)(a1.size() + a2.size() - intersection_size); //+ in_b1 + in_b2);
+    loose_overlap = (double)(intersection_size + in_b2 + in_b1)/(double)(a1.size() + a2.size() - intersection_size);
 }
 
 //compares the overlap between k+1 neighborhoods, used for testing adjacency merging
@@ -77,6 +80,7 @@ void modified_output_overlap(ofstream& out, vector<set<int> >& K1, vector<set<in
       double overlap; double loose_overlap; //loose overlap allows for nodes to be in/from k+1 neighborhoods 
       int d;
      // overlap = Overlap_Factor(K1[i], K2[i], d);
+      //cout << "node: " << i << endl;
       Modified_Overlap_Factor(K1[i], K2[i], K1_border[i], K2_border[i], overlap, loose_overlap);
       out << i << " " << overlap << " " << loose_overlap << endl;
       average += overlap;
