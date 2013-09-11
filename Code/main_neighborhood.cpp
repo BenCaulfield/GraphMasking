@@ -2,6 +2,7 @@
 #include "my_algorithm.cpp"
 #include "merge_groups.cpp"
 #include "handle_overlap.cpp"
+#include "kSort.cpp"
 #include <fstream>
 #include <map>
 #include <assert.h>
@@ -104,10 +105,10 @@ int main(int argc, char* argv[]){
     set<int> a_set;
     int max_node = 0;
     //BAD FORM!!!!
-    /*if(in_str.peek() == 'n'){
+    if(in_str.peek() == 'n'){
         in_str >> s;
         while(s!="###"){in_str >> s;}
-    }*/
+    }
 
     //reads in all the edges, and creates the adjacency graph
     while(!in_str.eof()){
@@ -125,6 +126,27 @@ int main(int argc, char* argv[]){
         Adjacency_graph[source].push_back(target);
     }
 
+    /*
+    //used to investigate LinkedIn data
+    int max_degree = 0;
+    double total_degree = 0;
+    double triangles = 0;
+    double possible_triangles = 0;
+    for(int i=1; i<Adjacency_graph.size(); i++){
+        for(list<int>::iterator itr=Adjacency_graph[i].begin(); *itr < i; itr++){
+            for(list<int>::iterator itr2=Adjacency_graph[*itr].begin(); itr2 != Adjacency_graph[*itr].end(); itr2++){
+                for(list<int>::iterator itr3=Adjacency_graph[*itr2].begin(); *itr3 <= i; itr3++){
+                    if(*itr3 == i){triangles++;}
+                }
+            }
+            possible_triangles++;
+        }
+        if(Adjacency_graph[i].size() > max_degree){max_degree = Adjacency_graph[i].size();}
+        total_degree += Adjacency_graph[i].size();
+    }
+    cout << "stats: " <<  max_degree << " " << total_degree / (double)(Adjacency_graph.size()) << " " << triangles << " " << possible_triangles;
+    return 0;*/
+
     vector<set<int> > K_neighborhood;
     vector<set<int> > Kplus1_Borders;
     Create_K_Graph_Borders(Adjacency_graph, k, K_neighborhood, Kplus1_Borders);
@@ -133,8 +155,9 @@ int main(int argc, char* argv[]){
     vector<int> clique_lookup;
     vector<int> group_size;
     vector<int> temp_vec;
-    vector<vector<int> >same_cliques; same_cliques.push_back(temp_vec);
-
+    list<vector<int> >adj_groups; adj_groups.push_back(temp_vec);
+    vector<vector<int> > same_cliques;
+    vector<adj_itr> adj_map;
 
     //outputs k_neighborhood:
     ofstream K_neigh_out("K_neighborhood");
@@ -155,29 +178,57 @@ int main(int argc, char* argv[]){
             }
             K_neighborhood_lists.push_back(l);
         }
-        get_cliques(K_neighborhood_lists, k, same_cliques, clique_lookup, group_size);
-    }
+        //get_cliques(K_neighborhood_lists, k, adj_groups, clique_lookup, group_size);
+        kSort(K_neighborhood, adj_groups, adj_map);
 
+        //super bad. fix later
+        for(adj_itr itr1 = adj_groups.begin(); itr1 != adj_groups.end(); itr1++){
+            same_cliques.push_back(*itr1);
+        }
+
+
+        //assembles clique_lookup (allows const-time checking if two nodes are in all same cliques)
+        //clique_lookup[i]=j if node i is in the jth element of adj_groups
+        clique_lookup.insert(clique_lookup.begin(), K_neighborhood.size(), 0);
+        group_size.insert(group_size.begin(), K_neighborhood.size(), 0);
+        for(int i=0; i<same_cliques.size(); i++){
+            for(int j=0; j<same_cliques[i].size(); j++){
+                clique_lookup[same_cliques[i][j]] = i;
+                group_size[same_cliques[i][j]] = same_cliques[i].size();
+            }
+        }
+
+        ofstream same_out("same_cliques");
+        int lone_nodes = 0;
+        for(int i=0; i<same_cliques.size(); i++){
+            same_out << i << ": "; if(same_cliques[i].size()==1){lone_nodes++;}
+            for(int j=0; j<same_cliques[i].size(); j++){
+                same_out << same_cliques[i][j] << " ";
+            }
+            same_out << "\n";
+        }
+        same_out << "lone nodes: " <<lone_nodes << endl;
+    }
     for(int i=0; i<repeats; i++){
         if(profs){
             Final_graph.insert(Final_graph.begin(), K_neighborhood.size(), l);
-            cout << "A" << endl;
+            //cout << "A" << endl;
             newProfs(K_neighborhood, Final_graph, k);
-            cout << "B" << endl;
+            //cout << "B" << endl;
         }
         else{
-            vector<vector<int> > temp_same_cliques = same_cliques;
-            cout << "A" << endl;
-            merge_similar_adj_groups(70, 20000000, Adjacency_graph, K_neighborhood, temp_same_cliques);
+            list<vector<int> > temp_adj_groups = adj_groups;
+            //cout << "A" << endl;
+            //merge_similar_adj_groups(5, 20000000000, Adjacency_graph, K_neighborhood, temp_adj_groups, adj_map);
             ofstream merged_adj("merged_adj");
-            for(int i=0; i<temp_same_cliques.size(); i++){
-                for(int j=0; j<temp_same_cliques[i].size(); j++){
-                    merged_adj << temp_same_cliques[i][j] << " ";
+            for(adj_itr i=temp_adj_groups.begin(); i!=temp_adj_groups.end(); i++){
+                for(int j=0; j<(*i).size(); j++){
+                    merged_adj << (*i)[j] << " ";
                 }
                 merged_adj << endl;
             }
-            cout << "B" << endl;
-            my_algorithm(Adjacency_graph,  Final_graph, temp_same_cliques);
+            //cout << "B" << endl;
+            my_algorithm(Adjacency_graph, Final_graph, temp_adj_groups);
         }
 
         //updates list of edge-frequencies based on Final_graph
@@ -187,6 +238,7 @@ int main(int argc, char* argv[]){
             list<int>::iterator itr = Final_graph[j].begin();
             while(*itr < j && itr != Final_graph[j].end()){itr++;}
             while(itr != Final_graph[j].end()){
+                //cout << j << " " << *itr << endl;
                 if(edge_freq_less(*freq_itr, j, *itr)){freq_itr++;}
                 else if(freq_itr->node1==j && freq_itr->node2==*itr){(freq_itr->frequency)++;freq_itr++;itr++;}
                 else {frequency_edge t(j, *itr, 1); edge_frequencies.insert(freq_itr, t); itr++;}
@@ -194,7 +246,6 @@ int main(int argc, char* argv[]){
         }
         if(i+1 < repeats){Final_graph.clear();}
     }
-
     //outputs overlap from last Final_graph
     if(output_type == "both" || output_type == "overlap"){
         ofstream overlap_out("overlap.txt");
@@ -202,25 +253,58 @@ int main(int argc, char* argv[]){
         vector<set<int> > New_Borders;
         Create_K_Graph_Borders(Final_graph, k, New_K_neighborhood, New_Borders);
         modified_output_overlap(overlap_out, K_neighborhood, New_K_neighborhood, Kplus1_Borders, New_Borders, k);
-                /*
-        vector<set<int> > Kplus1_Graph;
-        vector<set<int> > New_Kplus1_Graph;
-        Create_K_Graph(Adjacency_graph, k+3, Kplus1_Graph);
-        Create_K_Graph(Final_graph, k+3, New_Kplus1_Graph);
-        Create_K_Graph(Final_graph, k, New_K_neighborhood);
-        output_overlap(overlap_out, K_neighborhood, New_K_neighborhood, Final_graph, k);//note, the two may not be the same size*/
-       /// modified_output_overlap(overlap_out, K_neighborhood, New_K_neighborhood, Kplus1_Graph, New_Kplus1_Graph, k);
+
+        ofstream newK("K_neighborhoods_Borders");
+        for(int i=0; i<New_K_neighborhood.size(); i++){
+            newK << i << ": " << endl;
+            set<int>::iterator itr1 = K_neighborhood[i].begin();
+            newK << "K_neighborhood: ";
+            while(itr1 != K_neighborhood[i].end()){newK << *itr1 << " "; itr1++;}
+            newK << endl;
+            set<int>::iterator itr2 = Kplus1_Borders[i].begin();
+            newK << "K_Borders: ";
+            while(itr2 != Kplus1_Borders[i].end()){newK << *itr2 << " "; itr2++;}
+            newK << endl;
+            set<int>::iterator itr3 = New_K_neighborhood[i].begin();
+            newK << "New_K_neighborhood: ";
+            while(itr3 != New_K_neighborhood[i].end()){newK << *itr3 << " "; itr3++;}
+            newK << endl;
+            set<int>::iterator itr4 = New_Borders[i].begin();
+            newK << "New_Borders: ";
+            while(itr4 != New_Borders[i].end()){newK << *itr4 << " "; itr4++;}
+            newK << endl; newK << endl;
+        }
+       // newK << "_____________________BORDERS_______________________" << endl;
+       /*for(int i=0; i<New_Borders.size(); i++){
+            newK << i << ": ";
+            for(set<int>::iterator itr = New_Borders[i].begin(); itr != New_Borders[i].end(); itr++){
+                    newK << *itr << " ";
+            }
+            newK << endl;
+        }
+
+        K_neigh_out << "_____________________BORDERS_______________________" << endl;
+        for(int i=0; i<Kplus1_Borders.size(); i++){
+            K_neigh_out << i << ": ";
+            for(set<int>::iterator itr = Kplus1_Borders[i].begin(); itr != Kplus1_Borders[i].end(); itr++){
+                    K_neigh_out << *itr << " ";
+            }
+            K_neigh_out << endl;
+        }*/
+
     }
 
     //outputs frequencies from edge_frequencies
     //calculates relevant statistics
     if(output_type == "both" || output_type == "edge_frequency"){
         ofstream freq_out("edge_frequencies.txt");
+        ofstream edge_out("all_edge_frequencies.txt");
         vector<int> frequencies;
         while(frequencies.size() <= repeats){frequencies.push_back(0);}
         for(list<frequency_edge>::iterator itr=edge_frequencies.begin(); itr!=edge_frequencies.end(); itr++){
             //while(frequencies.size() <= itr->frequency){frequencies.push_back(0);}
             frequencies[itr->frequency]++;
+            edge_out << itr->node1 << " " << itr->node2 << " " << itr->frequency << endl;
         }
 
         //Types of "const-edges"
@@ -268,12 +352,14 @@ int main(int argc, char* argv[]){
             //cout << "E" << endl;
         }
 
+
+        /*
         adj_dif << "________________________________________" << endl;
         sample_adj_dif(Adjacency_graph, K_neighborhood, same_cliques, adj_dif);
-        //freq_out << "total_edges constant_edges inner_edges double_groups avg_complete_group outer_edges 
+        //freq_out << "total_edges constant_edges inner_edges double_groups avg_complete_group outer_edges
         //potential_fulls full_singletons constr_half_singletons half_singletons" <<endl;
         freq_out << edge_frequencies.size() << " " << frequencies.back() << " " << all_inner_edges << " " << const_inner_edges << " " << double_groups << " "
-        << (double)complete_group_size / const_inner_edges << " " << outer_edges << " " << potential_fulls << " " << full_singletons << 
+        << (double)complete_group_size / const_inner_edges << " " << outer_edges << " " << potential_fulls << " " << full_singletons <<
         " " << const_half_singletons << " " << half_singletons << " " << endl;
         freq_out << "repeats: " << repeats << endl;
         freq_out << "k-value: " << k << endl;
@@ -293,7 +379,7 @@ int main(int argc, char* argv[]){
         }
         for(int i=1; i<frequencies.size(); i++){
             freq_out << i << " " <<frequencies[i] << "\n";
-        }
+        }*/
 
 
     }
