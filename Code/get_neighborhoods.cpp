@@ -60,6 +60,8 @@ void Create_K_Graph(vector<list<int> >& Adjacency_Graph, int k,  vector<set<int>
     }
 }
 
+//Puts finds the K-neighborhood graph of given Adjacency_Graph
+//also finds graph of all nodes exactly k+1 from each other
 void Create_K_Graph_Borders(vector<list<int> >& Adjacency_Graph, int k, vector<set<int> >& K_neighborhood_Graph, vector<set<int> >& Kplus1_Border){
     pair<int, int> temp_pair;
     vector<bool> viewed_nodes(Adjacency_Graph.size(), false);
@@ -67,7 +69,7 @@ void Create_K_Graph_Borders(vector<list<int> >& Adjacency_Graph, int k, vector<s
     K_neighborhood_Graph.push_back(k_adjs);
     Kplus1_Border.push_back(k_adjs);   
     for(int i=1; i<Adjacency_Graph.size(); i++){
-        vector<int> queue = BFS(Adjacency_Graph, i, k+2, viewed_nodes);
+        vector<int> queue = BFS(Adjacency_Graph, i, k+1, viewed_nodes);
         K_neighborhood_Graph.push_back(k_adjs);
         Kplus1_Border.push_back(k_adjs);
         int depth = 0;
