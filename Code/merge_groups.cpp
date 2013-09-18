@@ -128,7 +128,7 @@ void merge_similar_adj_groups(int max_diff, int total_diff, vector<list<int> >& 
 }
 
 //void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int> >& K_neighborhoods, std::vector<std::vector<int> >& vadj_groups, std::vector<int> iadj_map, int mergecap, bool can_remerge)
-void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int> >& K_neighborhoods, std::vector<std::vector<int> >& adj_groups, std::vector<int> adj_map, int mergecap, bool can_remerge)
+void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int> >& K_neighborhoods, std::list<std::vector<int> >& adj_groups, std::vector<std::list<std::vector<int> >::iterator> adj_map, int mergecap)
 {
     /*
     std::list<std::vector<int> > adj_groups;
@@ -181,7 +181,7 @@ void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int>
     {
         for(unsigned int i = 0; i < itr -> second.size(); i++)
         {
-            if(((altered_node[itr -> second[i].first] == false && altered_node[itr -> second[i].second] == false) || can_remerge) && mergecount <= mergecap)
+            if(altered_node[itr -> second[i].first] == false && altered_node[itr -> second[i].second] == false && mergecount <= mergecap)
             {
                 altered_node[itr -> second[i].first] = true;
                 altered_node[itr -> second[i].second] = true;
@@ -206,9 +206,14 @@ void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int>
 		    }
 		*/
                 //compatibility end
-                
+                //old call below
                 //Merge_two_groups(vadj_groups,iadj_map,altered_node, iadj_map[itr -> second[i].first], iadj_map[itr -> second[i].second]);
-                Merge_two_groups(adj_groups,adj_map,altered_node, itr -> second[i].first, itr -> second[i].second);
+                
+                //move to correct element in list with indices
+                //std::list<std::vector<int> >::iterator a, b;
+                
+                
+                Merge_two_groups(adj_groups, adj_map, altered_node, adj_map[itr -> second[i].first], adj_map[itr -> second[i].second]);
                 
                 mergecount++;
             }
