@@ -220,7 +220,8 @@ int main(int argc, char* argv[]){
             list<vector<int> > temp_adj_groups = adj_groups;
             //cout << "A" << endl;
             //merge_similar_adj_groups(5, 20000000000, Adjacency_graph, K_neighborhood, temp_adj_groups, adj_map);
-            wesley_merge(Adjacency_graph, K_neighborhood, temp_adj_groups, adj_map, int mergecap, bool can_remerge);
+            int mergecap = 20;
+            wesley_merge(Adjacency_graph, K_neighborhood, temp_adj_groups, adj_map, mergecap);
             ofstream merged_adj("merged_adj");
             for(adj_itr i=temp_adj_groups.begin(); i!=temp_adj_groups.end(); i++){
                 for(int j=0; j<(*i).size(); j++){
