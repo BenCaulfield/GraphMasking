@@ -181,7 +181,7 @@ void wesley_merge(std::vector<std::list<int> >& graph, std::vector<std::set<int>
     {
         for(unsigned int i = 0; i < itr -> second.size(); i++)
         {
-            if(altered_node[itr -> second[i].first] == false && altered_node[itr -> second[i].second] == false && mergecount <= mergecap)
+            if(/*altered_node[itr -> second[i].first] == false && altered_node[itr -> second[i].second] == false && */mergecount <= mergecap)
             {
                 altered_node[itr -> second[i].first] = true;
                 altered_node[itr -> second[i].second] = true;
