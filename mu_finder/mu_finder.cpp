@@ -7,9 +7,9 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
-	if(argc != 3)//makes sure there is one command line argument
+	if(argc != 2)//makes sure there is one command line argument
 	{
-		cout << "Error!\nTry: ./mu_finder [filename] [num_nodes]" << endl;//error
+		cout << "Error!\nTry: ./mu_finder [filename]" << endl;//error
 		
 		return 0;
 	}
@@ -35,24 +35,19 @@ int main(int argc, char* argv[])
 			vector<double> mus;
 			//alternate end
 			
-			num_nodes = atoi(argv[2]);
 			set<int> templist;
-			for(int i = 0; i < num_nodes + 1; i++)//create vector of desired length
-			{
-				edges.push_back(templist);
-				//alternate being
-				mus.push_back(0);
-				//alternate end
-			}
-			for(int i = 0; i < 6; i++)//skip useless header information
-			{
-				infile >> temp;
-			}
 			
 			while(infile >> first)//populate lists
 			{
 				if(infile >> second)
 				{
+					while(edges.size() <= first)//making vectors of correct size
+					{
+						edges.push_back(templist);
+						//alternate being
+						mus.push_back(0);
+						//alternate end
+					}
 					edges[first].insert(second);
 				}				
 			}
@@ -87,7 +82,7 @@ int main(int argc, char* argv[])
 			{
 				mu+=mus[i];
 			}
-			mu/=num_nodes;
+			mu/=(mus.size()-1);
 			//alternate end
 	
 			//changed for alternate
