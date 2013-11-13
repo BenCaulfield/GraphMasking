@@ -1,0 +1,5 @@
+A survey of very large-scale neighborhood search techniques
+
+Finding large k-clubs in undirected graphs
+
+Network robustness and fragility: Percolation on random graphs
