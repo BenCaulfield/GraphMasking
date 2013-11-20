@@ -1,0 +1,26 @@
+\section{Basic Definitions and Notation}
+
+\begin{definition}
+A \emph{graph} is a 2-tuple $G = (V,E)$, where $V = \{v_1,v_2,...,v_n\}$ is a set of vertices (nodes) and the set of edges is $E = \{e_1,e_2,...,e_m\} \subseteq V \times V$. All edges in $E$ are undirected. Unless otherwise stated, when discussing a graph $G=(V,E)$, $v,u,w \in V$ and $e \in E$. 
+\end{definition}
+
+\begin{definition}
+ A \emph{path} $P$ of length $l$ in $G$ is a sequence of edges in $E$ of the form $e_1', e_2', ...,e_l'$ such that $e_i' = (v,u)$ and $e_{i+1}' = (u,w)$ for all $i \in [1,l]$. If $e_1' = (v_0', v1')$ and $e_l' = (v_{l-1}', v_l')$, then $P$ is a path from $v_0'$ to $v_l'$. 
+\end{definition}
+
+\begin{definition}
+Let $k$ be a positive integer. The \emph{k-neighborhood} of a node $v \in V$ in a graph $G = (V,E)$, denoted $N_k(v)$ is the set of all $u \in V$ where there exists a path from $v$ to $u$ of length less than or equal to $k$. The k-neighborhood of $G$ is the graph $N_k(G) = (V, E')$ where $(u,v) \in E'$ iff $v \in N_k(u)$. If $N_k(G) = G'$, we say that $G$ \emph{satisfies} $G'$. 
+\end{definition}
+
+\begin{definition}
+A \emph{masking} of a graph $G$ is a graph $G'$ which satisfies $N_k(G)$.\\
+\end{definition}
+
+
+\begin{definition}
+For an integer $k$ and graph $G$, we define the \emph{adjacency group} of a node $v \in V$ as the set of all $u \in V$ such that $N_k(v) = N_k(u)$. We can see that adjacency groups are equivalence classes.
+\end{definition}
+
+\begin{definition}
+A $swapping$ on the adjacency-group $A$ in $V$ is a bijection from $A$ onto itself, where each vertex is mapped to a randomly chosen vertex in $A$. A swapping on $V$ is the union of swappings on each adjacency-group. The application of a swapping on a vertex $v$ is denoted $Swap(v)$.
+\end{definition}

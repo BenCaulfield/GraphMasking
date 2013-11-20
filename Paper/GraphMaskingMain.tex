@@ -1,0 +1,67 @@
+
+\documentclass[11pt]{article}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{amsthm}
+\usepackage{enumitem}
+\usepackage{nameref}
+\setlength{\textheight}{9in} \setlength{\headheight}{.2in}
+\setlength{\headsep}{0in} \setlength{\topmargin}{0in}
+
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{definition}[thm]{Definition}
+
+\let\olddefinition\definition
+\renewcommand{\definition}{\olddefinition\normalfont}
+
+\let\olddefinition\thm
+\renewcommand{\thm}{\olddefinition\normalfont}
+
+
+\begin{document}
+\title{Graph Masking: Maintaining Neighborhoods in Graph Randomization}
+\author{
+	   Benjamin Caulfield \qquad Wesley Miller \qquad Malik Magdon-Ismail\\
+        Rensselaer Polytechnic Institute\\
+        Computer Science Department\\
+        Troy, NY 12180\\
+}
+
+
+
+\maketitle
+
+%Abstract
+\input{Abstract.tex}
+
+%Introduction
+\input{Introduction.tex}
+
+%Basic Definitions
+\input{BasicDefinitions.tex}
+
+%Label-Swapping
+\input{LabelSwapping.tex}
+
+%Merging Heuristics
+\input{MergingHeuristics.tex}
+
+%Edge Adding
+\input{EdgeAddingAlgorithm.tex}
+
+%Adversary Simulation
+\input{AdversarySimulation.tex}
+
+%Tests and Results
+\input{TestsAndResults.tex}
+
+
+
+
+\end{document}
+
+
+
+
