@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.7)  14 DEC 2013 21:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.7)  15 DEC 2013 01:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -274,20 +274,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
 LaTeX Warning: Reference `label-swap' on page 3 undefined on input line 2.
 
 
-LaTeX Warning: Reference `label-swap' on page 3 undefined on input line 27.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 27--29
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
 
  []
 
 <Sample-Graph.png, id=20, 886.06032pt x 276.28218pt>
 File: Sample-Graph.png Graphic file (type png)
  <use Sample-Graph.png>
-Package pdftex.def Info: Sample-Graph.png used on input line 32.
+Package pdftex.def Info: Sample-Graph.png used on input line 31.
 (pdftex.def)             Requested size: 265.82014pt x 82.88528pt.
 
-Overfull \hbox (18.54439pt too wide) in paragraph at lines 43--47
+Overfull \hbox (18.54439pt too wide) in paragraph at lines 42--46
 []\OT1/cmr/m/n/10.95 Let $\OML/cmm/m/it/10.95 G[]$ \OT1/cmr/m/n/10.95 be the k-
 Neighborhood graph of $\OML/cmm/m/it/10.95 G[]$ \OT1/cmr/m/n/10.95 and $\OML/cm
 m/m/it/10.95 G[]$ \OT1/cmr/m/n/10.95 be the k-Neighborhood
@@ -324,26 +321,12 @@ Overfull \hbox (125.79051pt too wide) in paragraph at lines 23--24
  [][] 
  []
 
-
-Overfull \hbox (42.92725pt too wide) in paragraph at lines 33--52
- [] 
- []
-
 [4 <./Sample-Graph.png>]) (./EdgeAddingAlgorithm.tex
-<Edge-Adding.png, id=31, 490.08093pt x 273.27094pt>
-File: Edge-Adding.png Graphic file (type png)
- <use Edge-Adding.png>
-Package pdftex.def Info: Edge-Adding.png used on input line 7.
-(pdftex.def)             Requested size: 294.05083pt x 163.9638pt.
 
-[5 <./mu=0_1 k=2 non-det merge 5.png>]
-File: Edge-Adding.png Graphic file (type png)
- <use Edge-Adding.png>
-Package pdftex.def Info: Edge-Adding.png used on input line 17.
-(pdftex.def)             Requested size: 147.0254pt x 81.9819pt.
-)
-(./AdversarySimulation.tex [6 <./mu=0_1 k=5 non-det merge 5.png> <./Edge-Adding
-.png>] <k'_value_synthetic.png, id=39, 756.57657pt x 356.0803pt>
+LaTeX Warning: Reference `edge-add' on page 5 undefined on input line 31.
+
+) (./AdversarySimulation.tex [5 <./mu=0_1 k=2 non-det merge 5.png>]
+<k'_value_synthetic.png, id=34, 756.57657pt x 356.0803pt>
 File: k'_value_synthetic.png Graphic file (type png)
 
 <use k'_value_synthetic.png>
@@ -358,7 +341,7 @@ Package pdftex.def Info: k'_value_synthetic.png used on input line 18.
 
 LaTeX Warning: File `mu=0_1 k=2 label.png' not found on input line 5.
 
-<mu=0_1 k=2 label.png, id=40, 893.58844pt x 452.4403pt>
+<mu=0_1 k=2 label.png, id=35, 893.58844pt x 452.4403pt>
 File: mu=0_1 k=2 label.png Graphic file (type png)
 
 <use mu=0_1 k=2 label.png>
@@ -372,7 +355,7 @@ Overfull \hbox (67.99582pt too wide) in paragraph at lines 5--6
 
 LaTeX Warning: File `mu=0_1 k=5 label.png' not found on input line 12.
 
-<mu=0_1 k=5 label.png, id=41, 884.55469pt x 439.6425pt>
+<mu=0_1 k=5 label.png, id=36, 884.55469pt x 439.6425pt>
 File: mu=0_1 k=5 label.png Graphic file (type png)
 
 <use mu=0_1 k=5 label.png>
@@ -383,20 +366,23 @@ Overfull \hbox (64.38239pt too wide) in paragraph at lines 12--13
  [][] 
  []
 
-) [7 <./k'_value_synthetic.png>] [8 <./mu=0_1 k=2 label.png> <./mu=0_1 k=5 labe
-l.png>] (./GraphMaskingMain.aux)
+) [6 <./mu=0_1 k=5 non-det merge 5.png>] [7] [8 <./k'_value_synthetic.png>]
+[9 <./mu=0_1 k=2 label.png> <./mu=0_1 k=5 label.png>] (./GraphMaskingMain.aux)
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 3052 strings out of 493307
- 43926 string characters out of 6139905
- 108825 words of memory out of 5000000
- 6430 multiletter control sequences out of 15000+600000
+ 3063 strings out of 493307
+ 44063 string characters out of 6139905
+ 111797 words of memory out of 5000000
+ 6442 multiletter control sequences out of 15000+600000
  11698 words of font info for 44 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,10n,26p,1353b,256s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,6n,26p,1361b,257s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -409,10 +395,10 @@ sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
 i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
 10.pfb>
-Output written on GraphMaskingMain.pdf (8 pages, 289176 bytes).
+Output written on GraphMaskingMain.pdf (9 pages, 252922 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 91 PDF objects out of 1000 (max. 8388607)
+ 59 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 36 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 31 words of extra memory for PDF output out of 10000 (max. 10000000)
 

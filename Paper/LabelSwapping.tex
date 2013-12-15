@@ -2,7 +2,6 @@
 \indent In this section, we present the \emph{label-swapping} algorithm which takes a graph $G$ and yields $G'$, a masking of $G$.This algorithm, as shown in figure \ref{label-swap}, works by altering the original graph while maintaining the same $k-Neighborhood$. This is accomplished by partitioning the vertices of the graph into $adjacency$-$groups$. 
 
 \begin{figure}[htb]
-	\centering
 	\begin{algorithmic}
 		\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 		\renewcommand{\algorithmicensure}{\textbf{Output:}}
@@ -18,13 +17,13 @@
 		\ForAll {$(u,v) \in E$}
 			\State {add edge $(Swap(u),Swap(v))$ to $E'$}
 		\EndFor
-		\Return {$G' = (V,E')$}
+		\State \Return {$G' = (V,E')$}
 	\end{algorithmic}
 	\caption{Pseudocode for the label-swapping algorithm.}
 	\label{fig:label-swap}
 \end{figure}
 
-\indent The label-swapping algorithm, as shown in figure \ref{label-swap} works by finding all maximal adjacency-groups and applying a random swapping to each one. The new graph formed by applying these swappings must have the same k-Neighborhood as the original graph (see Theorem 1); however, it may be possible to determine edges in the original graph from the new graph.
+\indent The label-swapping algorithm, as shown in figure \ref{fig:label-swap} works by finding all maximal adjacency-groups and applying a random swapping to each one. The new graph formed by applying these swappings must have the same k-Neighborhood as the original graph (see Theorem 1); however, it may be possible to determine edges in the original graph from the new graph.
 \\
 
 \begin{figure}[ht]
