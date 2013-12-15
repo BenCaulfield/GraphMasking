@@ -1,29 +1,28 @@
 \section{Label-Swapping Algorithm}
 \indent In this section, we present the \emph{label-swapping} algorithm which takes a graph $G$ and yields $G'$, a masking of $G$.This algorithm, as shown in figure \ref{label-swap}, works by altering the original graph while maintaining the same $k-Neighborhood$. This is accomplished by partitioning the vertices of the graph into $adjacency$-$groups$. 
 
-%below was commented
-
 \begin{figure}[htb]
-\centering
-\includegraphics[scale=0.7]{Label-Swap-Pseudo.png}
-\caption{Pseudocode for the label-swapping algorithm.}
-\label{fig:label-swap}
+	\centering
+	\begin{algorithmic}
+		\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+		\renewcommand{\algorithmicensure}{\textbf{Output:}}
+		\Require {Graph $G = (V, E)$, Integer $k$}
+		\Ensure {Graph $G' = (V, E')$}
+		\ForAll {$v \in V$}
+			\State {calculate $N_k(v)$}
+		\EndFor
+		\State {Apply ksort algorithm to find adjacency groups}
+		\ForAll {$A \in Adjacency Groups$}
+			\State {find a valid swapping on $A$}
+		\EndFor
+		\ForAll {$(u,v) \in E$}
+			\State {add edge $(Swap(u),Swap(v))$ to $E'$}
+		\EndFor
+		\Return {$G' = (V,E')$}
+	\end{algorithmic}
+	\caption{Pseudocode for the label-swapping algorithm.}
+	\label{fig:label-swap}
 \end{figure}
-
-%above was commented
-
-\begin{tabular}{l}
-	{\bf input} Graph $G = (V,E) $, Integer $k$\\
-	     	{\bf output} Graph $G' = (V, E')$\\
-	     	for $v \in V$:\\
-			\indent calculate $N_k(v)$\\
-		Apply ksort algorithm to find adjacency groups\\
-		for each adjacency group $A$:\\
-			\indent find a valid swapping on $A$\\
-		for each $(u,v) \in E$:\\
-			\indent add edge (Swap(u), Swap(v)) to E'\\
-		{\bf return} $G' = (V, E')$\\\\
-\end{tabular}
 
 \indent The label-swapping algorithm, as shown in figure \ref{label-swap} works by finding all maximal adjacency-groups and applying a random swapping to each one. The new graph formed by applying these swappings must have the same k-Neighborhood as the original graph (see Theorem 1); however, it may be possible to determine edges in the original graph from the new graph.
 \\
