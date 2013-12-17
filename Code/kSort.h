@@ -3,122 +3,100 @@
 
 std::vector<std::vector<int> > combine(std::vector<std::vector<int> > vec1, std::vector<std::vector<int> > vec2);
 
-class kNode
-{
+class kNode{
   public:
-		kNode()
-		{
+		kNode(){
 			diff = -1;
 			left = NULL;
 			right = NULL;
 		}
-		kNode(std::vector<int> k_neighborhood, int val, int num)
-		{
+		kNode(std::vector<int> k_neighborhood, int val, int num){
 			value = k_neighborhood;
 			diff = val;
 			left = NULL;
 			right = NULL;
 			index = num;
 		}
-		void insert(std::vector<int> k_neighborhood, int new_diff, int num)//inserts a k-neighborhood into a node or a child node
-		{
-			if(diff == -1)
-			{
+		void insert(std::vector<int> k_neighborhood, int new_diff, int num){//inserts a k-neighborhood into a node or a child node
+			if(diff == -1){
 				value = k_neighborhood;
 				diff = 0;
 				index = num;
 				return;
 			}
-			
-			for(unsigned int i = std::min(new_diff, diff); i < std::max(k_neighborhood.size(),value.size()); i++)
-			{
-				if(i >= k_neighborhood.size() || (i < value.size() && k_neighborhood[i] < value[i]))//if the new k-neighborhood is a subset of the current node's neighborhood or the current element of the k-neighborhood is less than the current node's current element
-				{
+
+			for(unsigned int i = std::min(new_diff, diff); i < std::max(k_neighborhood.size(),value.size()); i++){
+				if(i >= k_neighborhood.size() || (i < value.size() && k_neighborhood[i] < value[i])){//if the new k-neighborhood is a subset of the current node's neighborhood or the current element of the k-neighborhood is less than the current node's current element
 					//insert left
-					if(left == NULL)
-					{
+					if(left == NULL){
 						left = new kNode(k_neighborhood, i, num);
 					}
-					else
-					{
+					else{
 						left -> insert(k_neighborhood, i, num);
 					}
 					return;
 				}
-				else if(i >= value.size() || (i < k_neighborhood.size() && k_neighborhood[i] > value[i]))//if the opposite is true
-				{
+				else if(i >= value.size() || (i < k_neighborhood.size() && k_neighborhood[i] > value[i])){//if the opposite is true
 					//insert right
-					if(right == NULL)
-					{
+					if(right == NULL){
 						right = new kNode(k_neighborhood, i, num);
 					}
-					else
-					{
+					else{
 						right -> insert(k_neighborhood, i, num);
 					}
-					return;					
+					return;
 				}
 			}
-			
+
 			return;
-			
+
 		}
-		std::vector<std::vector<int> > sort()//returns the sorted vector of k-neighborhoods
-		{
+		std::vector<std::vector<int> > sort(){//returns the sorted vector of k-neighborhoods
 			std::vector<std::vector<int> > leftv;
 			std::vector<std::vector<int> > rightv;
 			leftv.clear();
 			rightv.clear();
-			
-			if(left != NULL)
-			{
+
+			if(left != NULL){
 				leftv = left -> sort();
 			}
-			
-			if(right != NULL)
-			{
+
+			if(right != NULL){
 				rightv = right -> sort();
 			}
-			
+
 			return combine(leftv,value,rightv);
 		}
-		std::vector<int> isort()//returns the sorted vector of k-neighborhoods
-		{
+		std::vector<int> isort(){//returns the sorted vector of k-neighborhoods
 			std::vector<int> leftv;
 			std::vector<int> rightv;
 			leftv.clear();
 			rightv.clear();
-			
-			if(left != NULL)
-			{
+
+			if(left != NULL){
 				leftv = left -> isort();
 			}
-			
-			if(right != NULL)
-			{
+
+			if(right != NULL){
 				rightv = right -> isort();
 			}
-			
+
 			return icombine(leftv,index,rightv);
 		}
-		std::vector<std::vector<int> > combine(std::vector<std::vector<int> > vec1, std::vector<int> middle, std::vector<std::vector<int> > vec2)
-		{
+		std::vector<std::vector<int> > combine(std::vector<std::vector<int> > vec1, std::vector<int> middle, std::vector<std::vector<int> > vec2){
 			vec1.push_back(middle);
-			for(unsigned int i = 0; i < vec2.size(); i++)
-			{
+			for(unsigned int i = 0; i < vec2.size(); i++){
 				vec1.push_back(vec2[i]);
 			}
-	
+
 			return vec1;
 		}
-		std::vector<int> icombine(std::vector<int> vec1, int middle, std::vector<int> vec2)
-		{
+		std::vector<int> icombine(std::vector<int> vec1, int middle, std::vector<int> vec2){
 			vec1.push_back(middle);
-			for(unsigned int i = 0; i < vec2.size(); i++)
-			{
+			for(unsigned int i = 0; i < vec2.size(); i++){
 				vec1.push_back(vec2[i]);
 			}
-	
+
 			return vec1;
 		}
 	private:
@@ -129,27 +107,22 @@ class kNode
 		kNode* right;//pointer to right child
 };
 
-class kTree
-{
+class kTree{
 	public:
-		kTree()
-		{
+		kTree(){
 			head = new kNode();
 		}
-		void insert(std::vector<int> k_neighborhood, int num)//inserts a k-neighborhood into the tree
-		{
+		void insert(std::vector<int> k_neighborhood, int num){//inserts a k-neighborhood into the tree
 			head -> insert(k_neighborhood, 0, num);//calls the kNode insert member function on the head
 		}
-		std::vector<std::vector<int> > sort()//returns the sorted vector of k-neighborhoods from the tree
-		{
+		std::vector<std::vector<int> > sort(){//returns the sorted vector of k-neighborhoods from the tree
 			return head -> sort();//calls the kNode sort member function on the head
 		}
-		std::vector<int> isort()//returns the sorted vector of indices from the tree
-		{
+		std::vector<int> isort(){//returns the sorted vector of indices from the tree
 			return head -> isort();//calls the kNode isort member function on the head
 		}
-		
+
 	private:
-		kNode* head;		
+		kNode* head;
 };
 
