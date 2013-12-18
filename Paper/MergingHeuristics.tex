@@ -6,7 +6,7 @@
 \end{definition}
 
 \begin{definition}
-The difference between adjacency groups $A$ and $B$ is the size of the symmetric difference of $N_k(v)$ and $N_k(u)$, for $v \in A$ and $u \in B$. 
+The \emph{difference} between adjacency groups $A$ and $B$ is the size of the symmetric difference of $N_k(v)$ and $N_k(u)$, for $v \in A$ and $u \in B$. 
 \end{definition}
 
 \subsection{Deterministic Merging}
@@ -56,7 +56,7 @@ A \emph{non-deterministic adjacency group merge} merges all of the pairs of rand
 		\Require {Integer $max\_diff$, Graph $G = (V, E)$, Adjacency Groups $A$}
 		\State {$current\_diff = 0$}
 		\State {$total\_changes = 0$}
-		\ForAll {$u \in V$}
+		\ForAll {Randomly Selected $u \in V$}
 			\If {$u$ has been altered}
 				\State {continue}
 			\EndIf
@@ -64,7 +64,7 @@ A \emph{non-deterministic adjacency group merge} merges all of the pairs of rand
 			\State {Integer $min\_pos = -1$}
 			\State {Integer $min\_diff2 = max\_diff + 1$}
 			\State {Integer $min\_pos2 = -1$}
-			\ForAll {$v \in V$}
+			\ForAll {Randomly Selected $v \in V$}
 				\If {$v < u$ or $v$ has been altered}
 					\State {continue}
 				\EndIf
