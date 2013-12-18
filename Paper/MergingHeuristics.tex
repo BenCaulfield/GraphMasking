@@ -29,12 +29,12 @@ A \emph{deterministic adjacency group merge} maps every pair of nodes to  the di
 		\ForAll {$(v,w,d) \in V \times V \times {\mathbb Z}$ sorted by $d = Diff(A(v),A(w))$ where $v \neq w$}
 			\State {$n = 0$}
 		\EndFor
-		\If {$not_merged(A(v))$ and $not_merged(A(w))$}
+		\If {$A(v)$ has not been merged and $A(w)$ has not been merged}
 			\State {$merge(A(v),A(w))$}
-			\State {$mark_as_merged(A(v))$}
-			\State {$mark_as_merged(A(w))$}
+			\State {mark $A(v)$ as merged}
+			\State {mark $A(w)$ as merged}
 			\State {$n++$}
-			\If {$n == L$}
+			\If {$n = L$}
 				\State {break}
 			\EndIf
 		\EndIf
@@ -53,32 +53,32 @@ A \emph{non-deterministic adjacency group merge} merges all of the pairs of rand
 	\begin{algorithmic}
 		\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 		\renewcommand{\algorithmicensure}{\textbf{Output:}}
-		\Require {Integer $max_diff$, Graph $G = (V, E)$, Adjacency Groups $A$}
-		\State {$current_diff = 0$}
-		\State {$total_changes = 0$}
+		\Require {Integer $max\_diff$, Graph $G = (V, E)$, Adjacency Groups $A$}
+		\State {$current\_diff = 0$}
+		\State {$total\_changes = 0$}
 		\ForAll {$u \in V$}
 			\If {$u$ has been altered}
 				\State {continue}
 			\EndIf
-			\State {Integer $min_diff = max_diff + 1$}
-			\State {Integer $min_pos = -1$}
-			\State {Integer $min_diff2 = max_diff + 1$}
-			\State {Integer $min_pos2 = -1$}
+			\State {Integer $min\_diff = max\_diff + 1$}
+			\State {Integer $min\_pos = -1$}
+			\State {Integer $min\_diff2 = max\_diff + 1$}
+			\State {Integer $min\_pos2 = -1$}
 			\ForAll {$v \in V$}
 				\If {$v < u$ or $v$ has been altered}
 					\State {continue}
 				\EndIf
-				\If {$diff(u,v) < min_diff$ and $diff(u,v) \neq 0$ and $u$ does not share an adjacency group with $v$}
-					\State {$min_diff = diff(u,v)$}
-					\State {$min_pos = v$}
+				\If {$diff(u,v) < min\_diff$ and $diff(u,v) \neq 0$ and $u$ does not share an adjacency group with $v$}
+					\State {$min\_diff = diff(u,v)$}
+					\State {$min\_pos = v$}
 				\EndIf
 			\EndFor
-			\If {$min_pos \neq -1$}
-				\State {$total_changes++$}
+			\If {$min\_pos \neq -1$}
+				\State {$total\_changes++$}
 				\State {mark $u$ as altered}
-				\State {mark $min_pos$ as altered}
-				\State {$current_diff += min_diff$}
-				\State {merge the two adjacency groups belinging to $u$ and $min_pos$}
+				\State {mark $min\_pos$ as altered}
+				\State {$current\_diff += min\_diff$}
+				\State {merge the two adjacency groups belinging to $u$ and $min\_pos$}
 			\EndIf
 		\EndFor		
 	\end{algorithmic}

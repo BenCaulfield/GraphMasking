@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.7)  17 DEC 2013 21:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.7)  17 DEC 2013 21:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -316,10 +316,10 @@ Package pdftex.def Info: mu=0_1-k=5-label.png used on input line 12.
 ) [8 <./k'_value_synthetic.png>] [9 <./mu=0_1-k=2-label.png> <./mu=0_1-k=5-labe
 l.png>] (./GraphMaskingMain.aux) ) 
 Here is how much of TeX's memory you used:
- 3054 strings out of 493307
- 43805 string characters out of 6139905
- 113695 words of memory out of 5000000
- 6432 multiletter control sequences out of 15000+600000
+ 3055 strings out of 493307
+ 43823 string characters out of 6139905
+ 114695 words of memory out of 5000000
+ 6433 multiletter control sequences out of 15000+600000
  11698 words of font info for 44 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  42i,6n,26p,1367b,259s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -335,7 +335,7 @@ texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on GraphMaskingMain.pdf (9 pages, 226648 bytes).
+Output written on GraphMaskingMain.pdf (9 pages, 226060 bytes).
 PDF statistics:
  89 PDF objects out of 1000 (max. 8388607)
  59 compressed objects within 1 object stream
