@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.7)  18 DEC 2013 17:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.7)  18 DEC 2013 19:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -161,18 +161,18 @@ Document Style - pseudocode environments for use with the `algorithmicx' style
  (./GraphMaskingMain.aux)
 \openout1 = `GraphMaskingMain.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -218,22 +218,22 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 38.
+LaTeX Font Info:    Try loading font information for U+msa on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 38.
+LaTeX Font Info:    Try loading font information for U+msb on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (./Abstract.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 2--42
+Underfull \hbox (badness 10000) in paragraph at lines 2--43
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2--42
+Underfull \hbox (badness 10000) in paragraph at lines 2--43
 
  []
 
@@ -260,7 +260,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 14--15
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 18--45
+Underfull \hbox (badness 10000) in paragraph at lines 18--46
 
  []
 
@@ -269,15 +269,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
  []
 
-[2]) (./LabelSwapping.tex
+[2]) (./LabelSwapping.tex [3]
 Underfull \hbox (badness 10000) in paragraph at lines 51--53
 
  []
 
-[3] <Sample-Graph.png, id=23, 886.06032pt x 276.28218pt>
+<Sample-Graph.png, id=23, 886.06032pt x 276.28218pt>
 File: Sample-Graph.png Graphic file (type png)
-
-<use Sample-Graph.png>
+ <use Sample-Graph.png>
 Package pdftex.def Info: Sample-Graph.png used on input line 56.
 (pdftex.def)             Requested size: 265.82014pt x 82.88528pt.
 
@@ -287,9 +286,9 @@ Neighborhood graph of $\OML/cmm/m/it/10.95 G[]$ \OT1/cmr/m/n/10.95 and $\OML/cm
 m/m/it/10.95 G[]$ \OT1/cmr/m/n/10.95 be the k-Neighborhood
  []
 
-[4 <./Sample-Graph.png>]) (./MergingHeuristics.tex) (./EdgeAddingAlgorithm.tex)
-[5] (./AdversarySimulation.tex [6]
-<k'_value_synthetic.png, id=36, 756.57657pt x 356.0803pt>
+[4 <./Sample-Graph.png>]) (./MergingHeuristics.tex [5] [6])
+(./EdgeAddingAlgorithm.tex [7]) (./AdversarySimulation.tex [8]
+<k'_value_synthetic.png, id=43, 756.57657pt x 356.0803pt>
 File: k'_value_synthetic.png Graphic file (type png)
 
 <use k'_value_synthetic.png>
@@ -300,45 +299,52 @@ File: k'_value_synthetic.png Graphic file (type png)
 Package pdftex.def Info: k'_value_synthetic.png used on input line 18.
 (pdftex.def)             Requested size: 302.62526pt x 142.4296pt.
 )
-(./TestsAndResults.tex <mu=0_1-k=2-label.png, id=37, 893.58844pt x 452.4403pt>
+(./TestsAndResults.tex <mu=0_1-k=2-label.png, id=44, 893.58844pt x 452.4403pt>
 File: mu=0_1-k=2-label.png Graphic file (type png)
 
 <use mu=0_1-k=2-label.png>
 Package pdftex.def Info: mu=0_1-k=2-label.png used on input line 5.
 (pdftex.def)             Requested size: 357.42905pt x 180.97292pt.
 
-<mu=0_1-k=5-label.png, id=38, 884.55469pt x 439.6425pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<mu=0_1-k=5-label.png, id=45, 884.55469pt x 439.6425pt>
 File: mu=0_1-k=5-label.png Graphic file (type png)
 
 <use mu=0_1-k=5-label.png>
 Package pdftex.def Info: mu=0_1-k=5-label.png used on input line 12.
 (pdftex.def)             Requested size: 353.81561pt x 175.85388pt.
-) [7] [8 <./k'_value_synthetic.png>] [9 <./mu=0_1-k=2-label.png> <./mu=0_1-k=5-
-label.png>] (./GraphMaskingMain.aux) ) 
+) [9 <./k'_value_synthetic.png>] [10 <./mu=0_1-k=2-label.png> <./mu=0_1-k=5-lab
+el.png>] (./GraphMaskingMain.aux)
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
- 3055 strings out of 493307
- 43823 string characters out of 6139905
- 119698 words of memory out of 5000000
- 6433 multiletter control sequences out of 15000+600000
+ 3056 strings out of 493307
+ 43833 string characters out of 6139905
+ 109698 words of memory out of 5000000
+ 6434 multiletter control sequences out of 15000+600000
  11698 words of font info for 44 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 42i,6n,26p,1367b,259s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
-0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on GraphMaskingMain.pdf (9 pages, 227338 bytes).
+ 42i,6n,26p,1367b,255s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm
+10.pfb>
+Output written on GraphMaskingMain.pdf (10 pages, 227455 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
- 59 compressed objects within 1 object stream
+ 92 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
