@@ -6,7 +6,7 @@
 \end{definition}
 
 \begin{definition}
-	A \emph{kTree} is a binary tree used to sort a set of adjacency groups based on the sorting criteria. When an adjacency group $a$ is inserted into the kTree, it is sent to the root node. If the node is empty, $a$ occupies its space; if it is not empty, $a$ is compared to the one occupying the node, $b$. If $a < b$, then $a$ is send to the left child of the node, and if $a > b$, then $a$ is sent to the right child. This comparison process continues until $a$ is placed within a previously empty node. When necessary, the kTree returns a sorted list of the adjacency groups by recursively passing up from each node a list containing the contents retrieved from that node's left child, its own contents, and the contents from its right child.
+	A \emph{kTree} is a binary tree used to sort a set of adjacency groups based on the sorting criteria. When an adjacency group $a$ is inserted into the kTree, it is sent to the root node. If the node is empty, $a$ occupies its space; if it is not empty, $a$ is compared to the one occupying the node, $b$. If $a < b$, then $a$ is send to the left child of the node, and if $a > b$, then $a$ is sent to the right child. This comparison process continues until $a$ is placed within a previously empty node or a node is found that whose contents are equal to $a$. When necessary, the kTree returns a sorted list of the adjacency groups by recursively passing up from each node a list containing the contents retrieved from that node's left child, its own contents, and the contents from its right child.
 \end{definition}
 
 \begin{figure}[H]
