@@ -13,16 +13,10 @@
 \setlength{\textheight}{9in} \setlength{\headheight}{.2in}
 \setlength{\headsep}{0in} \setlength{\topmargin}{0in}
 
-
-\newtheorem{thm}{Definition}[section]
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{definition}[thm]{Definition}
-
-\let\olddefinition\definition
-\renewcommand{\definition}{\olddefinition\normalfont}
-
-\let\olddefinition\thm
-\renewcommand{\thm}{\olddefinition\normalfont}
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{dfn}{Definition}[section]
 
 
 \begin{document}
@@ -44,7 +38,7 @@
 %Introduction
 \input{Introduction.tex}
 
-%Basic Definitions
+%Basic Definitions (Part of Introduction)
 \input{BasicDefinitions.tex}
 
 %Label-Swapping

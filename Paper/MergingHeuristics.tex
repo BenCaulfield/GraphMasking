@@ -1,19 +1,19 @@
 \section{Merging Heuristics}
 \indent Unfortunately, although the label-swapping algorithm yields perfectly satisfying graphs, it often doesn't sufficiently disguise a given graph.  In this section, we present a heuristic, called adjacency group merges (or simply merges) that further randomizes a given graph, but is not guaranteed to maintain the same k-neighborhood. There are two versions of this heuristic that we developed, deterministic merges and non-deterministic merges.
 
-\begin{definition}
+\begin{dfn}
 \noindent A \emph{merge} or \emph{merging} of a graph's adjacency groups combines similar adjacency groups into larger groups containing the union of their nodes based on their \emph{difference}.
-\end{definition}
+\end{dfn}
 
-\begin{definition}
+\begin{dfn}
 The \emph{difference} between adjacency groups $A$ and $B$ is the size of the symmetric difference of $N_k(v)$ and $N_k(u)$, for $v \in A$ and $u \in B$. 
-\end{definition}
+\end{dfn}
 
 \subsection{Deterministic Merging}
 
-\begin{definition}
+\begin{dfn}
 A \emph{deterministic adjacency group merge} maps every pair of nodes to  the differencence value between their adjacency groups and merges adjacency groups of the first n that have not been involved in a previous merge.
-\end{definition}
+\end{dfn}
 
 \begin{figure}[H]
 	\begin{algorithmic}
@@ -45,9 +45,9 @@ A \emph{deterministic adjacency group merge} maps every pair of nodes to  the di
 
 \subsection{Non-Deterministic Merging}
 
-\begin{definition}
+\begin{dfn}
 A \emph{non-deterministic adjacency group merge} merges all of the pairs of randomly selected adjacency groups that have not been involved in a previous merge and have a \emph{difference} value less than or equal to a prescribed cutoff value.
-\end{definition}
+\end{dfn}
 
 \begin{figure}[H]
 	\begin{algorithmic}
