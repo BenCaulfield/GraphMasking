@@ -11,7 +11,7 @@ using namespace std;
 //takes in a graph, an int representing the node the BFS starts from, the depth the BFS goes, and a vector of bools all set to false
 //the vector of bools are set to true when a node is visited, so the BFS doesn't visit the same node twice.
 //returns a vector of ints, representing the result of the BFS
-//the different depths for the BFS are seperated by -1s. 
+//the different depths for the BFS are seperated by -1s.
 //ex: [0, -1, 1, 2, -1, 3, 4] is a BFS from 0, with 1 & 2 at depth 1, and 3 & 4 at depth 2
 vector<int> BFS(vector<list<int> >& graph, int start, int depth, vector<bool>& viewed_nodes){
     vector<int> queue;
@@ -67,7 +67,7 @@ void Create_K_Graph_Borders(vector<list<int> >& Adjacency_Graph, int k, vector<s
     vector<bool> viewed_nodes(Adjacency_Graph.size(), false);
     set<int> k_adjs;
     K_neighborhood_Graph.push_back(k_adjs);
-    Kplus1_Border.push_back(k_adjs);   
+    Kplus1_Border.push_back(k_adjs);
     for(int i=1; i<Adjacency_Graph.size(); i++){
         vector<int> queue = BFS(Adjacency_Graph, i, k+1, viewed_nodes);
         K_neighborhood_Graph.push_back(k_adjs);

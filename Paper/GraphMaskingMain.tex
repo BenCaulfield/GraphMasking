@@ -9,9 +9,9 @@
 \usepackage{algorithmicx}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
-\usepackage{float}
 \setlength{\textheight}{9in} \setlength{\headheight}{.2in}
 \setlength{\headsep}{0in} \setlength{\topmargin}{0in}
+
 
 \theoremstyle{plain}
 \newtheorem{thm}{Theorem}[section]
@@ -38,8 +38,11 @@
 %Introduction
 \input{Introduction.tex}
 
-%Basic Definitions (Part of Introduction)
+%Basic Definitions
 \input{BasicDefinitions.tex}
+
+%Edge Adding
+\input{EdgeAddingAlgorithm.tex}
 
 %Label-Swapping
 \input{LabelSwapping.tex}
@@ -47,13 +50,14 @@
 %Merging Heuristics
 \input{MergingHeuristics.tex}
 
-%Edge Adding
-\input{EdgeAddingAlgorithm.tex}
-
 %Adversary Simulation
 \input{AdversarySimulation.tex}
 
+%Tests and Results
+%\input{TestsAndResults.tex}
 
+%Citations
+\input{Citations.tex}
 
 
 \end{document}

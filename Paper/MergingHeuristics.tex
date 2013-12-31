@@ -1,12 +1,12 @@
 \section{Merging Heuristics}
-\indent Unfortunately, although the label-swapping algorithm yields perfectly satisfying graphs, it often doesn't sufficiently disguise a given graph.  In this section, we present a heuristic, called adjacency group merges (or simply merges) that further randomizes a given graph, but is not guaranteed to maintain the same k-neighborhood. There are two versions of this heuristic that we developed, deterministic merges and non-deterministic merges.
+\indent Unfortunately, although the label-swapping algorithm yields perfectly satisfying graphs, it often doesn't sufficiently disguise a given graph.  In this section, we present a heuristic, called \emph{adjacency group merges} (or simply \emph{merges}) that further randomizes a given graph, but is not guaranteed to maintain the same k-neighborhood. There are two versions of this heuristic that we developed, \emph{deterministic merges} and \emph{non-deterministic merges}.
 
 \begin{dfn}
 \noindent A \emph{merge} or \emph{merging} of a graph's adjacency groups combines similar adjacency groups into larger groups containing the union of their nodes based on their \emph{difference}.
 \end{dfn}
 
 \begin{dfn}
-The \emph{difference} between adjacency groups $A$ and $B$ is the size of the symmetric difference of $N_k(v)$ and $N_k(u)$, for $v \in A$ and $u \in B$. 
+The difference between adjacency groups $A$ and $B$ is the size of the symmetric difference of $N_k(v)$ and $N_k(u)$, for $v \in A$ and $u \in B$. 
 \end{dfn}
 
 \subsection{Deterministic Merging}
@@ -15,7 +15,7 @@ The \emph{difference} between adjacency groups $A$ and $B$ is the size of the sy
 A \emph{deterministic adjacency group merge} maps every pair of nodes to  the differencence value between their adjacency groups and merges adjacency groups of the first n that have not been involved in a previous merge.
 \end{dfn}
 
-\begin{figure}[H]
+\begin{figure}[htb]
 	\begin{algorithmic}
 		\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 		\renewcommand{\algorithmicensure}{\textbf{Output:}}
@@ -49,14 +49,14 @@ A \emph{deterministic adjacency group merge} maps every pair of nodes to  the di
 A \emph{non-deterministic adjacency group merge} merges all of the pairs of randomly selected adjacency groups that have not been involved in a previous merge and have a \emph{difference} value less than or equal to a prescribed cutoff value.
 \end{dfn}
 
-\begin{figure}[H]
+\begin{figure}[htb]
 	\begin{algorithmic}
 		\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 		\renewcommand{\algorithmicensure}{\textbf{Output:}}
 		\Require {Integer $max\_diff$, Graph $G = (V, E)$, Adjacency Groups $A$}
 		\State {$current\_diff = 0$}
 		\State {$total\_changes = 0$}
-		\ForAll {Randomly Selected $u \in V$}
+		\ForAll {$u \in V$}
 			\If {$u$ has been altered}
 				\State {continue}
 			\EndIf
@@ -64,7 +64,7 @@ A \emph{non-deterministic adjacency group merge} merges all of the pairs of rand
 			\State {Integer $min\_pos = -1$}
 			\State {Integer $min\_diff2 = max\_diff + 1$}
 			\State {Integer $min\_pos2 = -1$}
-			\ForAll {Randomly Selected $v \in V$}
+			\ForAll {$v \in V$}
 				\If {$v < u$ or $v$ has been altered}
 					\State {continue}
 				\EndIf
@@ -86,3 +86,23 @@ A \emph{non-deterministic adjacency group merge} merges all of the pairs of rand
 	\label{fig:non-deterministic-merging}
 \end{figure}
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.8 ]{s40_k_2_det.png}
+  \caption{The results from the label-swapping algorithm when run 20 times on the blog data when k=2. Adjacency groups differing by 5 or less were merged.}
+  \label{fig:s40-k=2-merge}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.8]{s40_k_3_det.png}
+  \caption{The results from the label-swapping algorithm when run 20 times on the blog data when k=3. Adjacency groups differing by 5 or less were merged.}
+  \label{fig:s40-k=3-merge}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.8]{s40_k_4_det.png}
+  \caption{The results from the label-swapping algorithm when run 20 times on the blog data when k=4. Adjacency groups differing by 5 or less were merged.}
+  \label{fig:s40-k=3-merge}
+\end{figure}

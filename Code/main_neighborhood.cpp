@@ -33,19 +33,40 @@ void Print_Neighborhood(vector<set<int> >& neighborhood, ofstream& out){
 
 //used to track how often an edge appears (when looking at multiple graphs over same node-set)
 struct frequency_edge{
-    frequency_edge(int a, int b, int c): node1(a), node2(b), frequency(c){}
+    frequency_edge(int a, int b, int c, string d): node1(a), node2(b), frequency(c), edge_type(d){}
     int node1;
     int node2;
     int frequency;
+    string edge_type; //either "original", "valid", or "invalid"
 };
 
 //less-than function used for sorting frequency_edges
-bool edge_freq_less(frequency_edge e1, int n1, int n2){
+bool freq_edge_less(frequency_edge e1, int n1, int n2){
     if(e1.node1 < n1){return true;}
     else if(e1.node1 > n1){return false;}
     return e1.node2 < n2;
 }
 
+bool edge_freq_less(frequency_edge e1, frequency_edge e2){
+    if(e1.frequency < e2.frequency){return true;}
+    else if(e1.frequency > e2.frequency){return false;}
+
+    //follows pattern: original < valid < invalid
+    if(e1.edge_type == "original" && e2.edge_type != "original"){return true;}
+    if(e1.edge_type == "valid"){
+       if(e2.edge_type == "original"){return false;}
+       else if(e2.edge_type == "invalid"){return true;}
+    }
+    else if(e1.edge_type == "invalid" && e2.edge_type != "invalid"){return false;}
+
+    if(e1.node1 < e2.node1){return true;}
+    else if(e1.node1 > e2.node1){return false;}
+
+    if(e1.node2 < e2.node2){return true;}
+    else if(e1.node2 > e2.node2){return false;}
+
+    return false;
+}
 
 //main executable
 //assumes input file will be list of directed edges (u, v), where each line is of form: u v (no commas)
@@ -146,7 +167,7 @@ int main(int argc, char* argv[]){
             else if(merge == "det_merge"){
                 int maximum_difference = 5;
                 //deterministically merges closest adjacency groups until all remaining groups have a difference greater than maximum difference
-                wesley_merge(Adjacency_graph, K_neighborhood, temp_adj_groups, adj_map, maximum_difference);
+                deterministic_merge2(Adjacency_graph, K_neighborhood, temp_adj_groups, adj_map, maximum_difference);
             }
             ofstream merged_adj("merged_adj");
             for(adj_itr i=temp_adj_groups.begin(); i!=temp_adj_groups.end(); i++){
@@ -166,9 +187,25 @@ int main(int argc, char* argv[]){
             while(*itr < j && itr != Final_graph[j].end()){itr++;}
             while(itr != Final_graph[j].end()){
                 //cout << j << " " << *itr << endl;
-                if(edge_freq_less(*freq_itr, j, *itr)){freq_itr++;}
-                else if(freq_itr->node1==j && freq_itr->node2==*itr){(freq_itr->frequency)++;freq_itr++;itr++;}
-                else {frequency_edge t(j, *itr, 1); edge_frequencies.insert(freq_itr, t); itr++;}
+                //cout << freq_itr -> edge_type;
+                if(freq_itr != edge_frequencies.end() && freq_edge_less(*freq_itr, j, *itr)){freq_itr++;}
+                else if(freq_itr != edge_frequencies.end() && freq_itr->node1==j && freq_itr->node2==*itr){(freq_itr->frequency)++;freq_itr++;itr++;}
+                else{//adds new frequency edge to list
+                    //assigns type to frequency edge
+                    string edge_type = "original";
+                    bool in_original = false;
+                    for(list<int>::iterator listitr = Adjacency_graph[j].begin(); listitr != Adjacency_graph[j].end(); listitr++){
+                        if(*listitr == *itr){in_original = true; break;}
+                    }
+                    if(!in_original){
+                        if(K_neighborhood[j].find(*itr) == K_neighborhood[j].end()){edge_type = "invalid";}
+                        else{edge_type = "valid";}
+                    }
+
+                    frequency_edge t(j, *itr, 1, edge_type);
+                    edge_frequencies.insert(freq_itr, t);
+                    itr++;
+                }
             }
         }
         if(i+1 < repeats){Final_graph.clear();}
@@ -190,7 +227,7 @@ int main(int argc, char* argv[]){
         while(frequencies.size() <= repeats){frequencies.push_back(0);}
         for(list<frequency_edge>::iterator itr=edge_frequencies.begin(); itr!=edge_frequencies.end(); itr++){
             frequencies[itr->frequency]++;
-            edge_out << itr->node1 << " " << itr->node2 << " " << itr->frequency << endl;
+            edge_out << itr->node1 << " " << itr->node2 << " " << itr->frequency << " " << itr -> edge_type << endl;
         }
 
     }
