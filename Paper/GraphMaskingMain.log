@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.7)  1 JAN 2014 20:35
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2013.11.7)  1 JAN 2014 21:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -236,26 +236,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
 
-) (./Introduction.tex) [1
+) (./Introduction.tex [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}])
 (./BasicDefinitions.tex
 Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
-) (./EdgeAddingAlgorithm.tex) (./LabelSwapping.tex [2]
+) (./EdgeAddingAlgorithm.tex) [2] (./LabelSwapping.tex [3]
 Underfull \hbox (badness 10000) in paragraph at lines 43--45
 
  []
 
-<Sample-Graph.png, id=20, 886.06032pt x 276.28218pt>
+<Sample-Graph.png, id=23, 886.06032pt x 276.28218pt>
 File: Sample-Graph.png Graphic file (type png)
  <use Sample-Graph.png>
 Package pdftex.def Info: Sample-Graph.png used on input line 48.
 (pdftex.def)             Requested size: 265.82014pt x 82.88528pt.
 
-<s40_k_2_nomerge.png, id=22, 530.73282pt x 326.72063pt>
+<s40_k_2_nomerge.png, id=25, 530.73282pt x 326.72063pt>
 File: s40_k_2_nomerge.png Graphic file (type png)
 
 <use s40_k_2_nomerge.png>
@@ -273,8 +273,8 @@ Neighborhood graph of $\OML/cmm/m/it/10.95 G[]$ \OT1/cmr/m/n/10.95 and $\OML/cm
 m/m/it/10.95 G[]$ \OT1/cmr/m/n/10.95 be the k-Neighborhood
  []
 
-[3]) (./MergingHeuristics.tex [4]
-<s40_k_2_det.png, id=29, 586.44093pt x 322.95656pt>
+[4]) (./MergingHeuristics.tex [5 <./Sample-Graph.png>]
+<s40_k_2_det.png, id=33, 586.44093pt x 322.95656pt>
 File: s40_k_2_det.png Graphic file (type png)
  <use s40_k_2_det.png>
 Package pdftex.def Info: s40_k_2_det.png used on input line 91.
@@ -284,7 +284,7 @@ Overfull \hbox (109.15337pt too wide) in paragraph at lines 91--92
  [][] 
  []
 
-<s40_k_3_det.png, id=30, 576.65437pt x 348.55219pt>
+<s40_k_3_det.png, id=34, 576.65437pt x 348.55219pt>
 File: s40_k_3_det.png Graphic file (type png)
  <use s40_k_3_det.png>
 Package pdftex.def Info: s40_k_3_det.png used on input line 98.
@@ -294,7 +294,7 @@ Overfull \hbox (101.32411pt too wide) in paragraph at lines 98--99
  [][] 
  []
 
-<s40_k_4_det.png, id=31, 537.50812pt x 335.00156pt>
+<s40_k_4_det.png, id=35, 537.50812pt x 335.00156pt>
 File: s40_k_4_det.png Graphic file (type png)
  <use s40_k_4_det.png>
 Package pdftex.def Info: s40_k_4_det.png used on input line 105.
@@ -304,10 +304,10 @@ Overfull \hbox (70.00708pt too wide) in paragraph at lines 105--106
  [][] 
  []
 
-) (./AdversarySimulation.tex [5 <./Sample-Graph.png>]
-<k'_values.png, id=36, 533.995pt x 338.26375pt>
+) (./AdversarySimulation.tex <k'_values.png, id=36, 533.995pt x 338.26375pt>
 File: k'_values.png Graphic file (type png)
- <use k'_values.png>
+
+<use k'_values.png>
 Package pdftex.def Info: k'_values.png used on input line 10.
 (pdftex.def)             Requested size: 427.19658pt x 270.61136pt.
 
@@ -315,8 +315,8 @@ Overfull \hbox (67.19658pt too wide) in paragraph at lines 10--11
  [][] 
  []
 
-) [6 <./s40_k_2_nomerge.png>] (./Citations.tex [7 <./k'_values.png (PNG copy)>]
-) [8] [9 <./s40_k_2_det.png>] [10 <./s40_k_3_det.png>] [11 <./s40_k_4_det.png>]
+[6 <./s40_k_2_nomerge.png>]) (./Citations.tex [7 <./k'_values.png (PNG copy)>])
+[8] [9 <./s40_k_2_det.png>] [10 <./s40_k_3_det.png>] [11 <./s40_k_4_det.png>]
 (./GraphMaskingMain.aux)
 
 LaTeX Warning: There were multiply-defined labels.
@@ -325,7 +325,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  3069 strings out of 493307
  43933 string characters out of 6139905
- 115853 words of memory out of 5000000
+ 113852 words of memory out of 5000000
  6444 multiletter control sequences out of 15000+600000
  11997 words of font info for 45 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
@@ -342,7 +342,7 @@ sfonts/cm/cmr9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
 m/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy
 8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on GraphMaskingMain.pdf (11 pages, 237699 bytes).
+Output written on GraphMaskingMain.pdf (11 pages, 238261 bytes).
 PDF statistics:
  104 PDF objects out of 1000 (max. 8388607)
  66 compressed objects within 1 object stream
