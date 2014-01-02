@@ -1,9 +1,9 @@
 \begin{dfn}
-A \emph{graph} is a 2-tuple $G = (V,E)$, where $V = \{v_1,v_2,...,v_n\}$ is a set of vertices (nodes) and the set of edges is $E = \{e_1,e_2,...,e_m\} \subseteq V \times V$. All edges in $E$ are undirected. Unless otherwise stated, when discussing a graph $G=(V,E)$, $v,u,w \in V$ and $e \in E$. 
+A \emph{graph} is a 2-tuple $G = (V,E)$, where $V = \{v_1,v_2,...,v_n\}$ is a set of vertices (nodes) and the set of edges is $E = \{e_1,e_2,...,e_m\} \subseteq V \times V$. All edges in $E$ are undirected. Unless otherwise stated, when discussing a graph $G=(V,E)$, $u,v,w \in V$ and $e \in E$. 
 \end{dfn}
 
 \begin{dfn}
- A \emph{path} $P$ of length $l$ in $G$ is a sequence of edges in $E$ of the form $e_1', e_2', ...,e_l'$ such that $e_i' = (v,u)$ and $e_{i+1}' = (u,w)$ for all $i \in [1,l]$. If $e_1' = (v_0', v1')$ and $e_l' = (v_{l-1}', v_l')$, then $P$ is a path from $v_0'$ to $v_l'$. 
+ A \emph{path} $P$ of length $l$ in $G$ is a sequence of edges in $E$ of the form $e_1', e_2', ...,e_l'$ such that $e_i' = (v,u)$ and $e_{i+1}' = (u,w)$ for all $i \in [1,l-1]$. If $e_1' = (v_0', v_1')$ and $e_l' = (v_{l-1}', v_l')$, then $P$ is a path from $v_0'$ to $v_l'$. 
 \end{dfn}
 
 \begin{dfn}
