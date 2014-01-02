@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.1.26)  1 JAN 2014 18:48
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.1.26)  1 JAN 2014 20:48
 entering extended mode
 **C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/GraphMaskingMain.tex
 (C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/GraphMaskingMain.tex
@@ -210,34 +210,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--3
  []
 
 ) (C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\Introduction.tex
-Underfull \hbox (badness 10000) in paragraph at lines 14--15
-
- []
-
 [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 20--21
-
- []
-
-)
-Underfull \hbox (badness 10000) in paragraph at lines 24--40
-
- []
-
+{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}])
 (C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\BasicDefinitions.tex
 Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
 ) (C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\EdgeAddingAlgorithm.tex
-[2]) (C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\LabelSwapping.tex
+) [2] (C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\LabelSwapping.tex
 [3]
 Underfull \hbox (badness 10000) in paragraph at lines 43--45
 
@@ -301,8 +283,7 @@ Overfull \hbox (70.00708pt too wide) in paragraph at lines 105--106
  []
 
 ) (C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\AdversarySimulation.tex
-[6 <C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/s40_k_2_nomerge.png>]
-<k'_values.png, id=39, 533.995pt x 338.26375pt>
+<k'_values.png, id=35, 533.995pt x 338.26375pt>
 File: k'_values.png Graphic file (type png)
  <use k'_values.png>
 Package pdftex.def Info: k'_values.png used on input line 10.
@@ -312,13 +293,10 @@ Overfull \hbox (67.19658pt too wide) in paragraph at lines 10--11
  [][] 
  []
 
-) [7]
-Overfull \vbox (90.31319pt too high) has occurred while \output is active []
-
-
-[8 <C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/k'_values.png (PNG cop
-y)>] (C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\Citations.tex)
-[9 <C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/s40_k_2_det.png>]
+[6 <C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/s40_k_2_nomerge.png>])
+(C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\Citations.tex [7 <C:/User
+s/caulfb2/Documents/GitHub/GraphMasking/Paper/k'_values.png (PNG copy)>])
+[8] [9 <C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/s40_k_2_det.png>]
 [10 <C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/s40_k_3_det.png>]
 [11 <C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/s40_k_4_det.png>]
 (C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\GraphMaskingMain.aux)
@@ -333,7 +311,7 @@ Here is how much of TeX's memory you used:
  5954 multiletter control sequences out of 15000+200000
  11997 words of font info for 45 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
- 42i,6n,24p,1420b,259s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,6n,24p,1420b,272s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
 :/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/
@@ -347,7 +325,7 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 
 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on GraphMaskingMain.pdf (11 pages, 249212 bytes).
+Output written on GraphMaskingMain.pdf (11 pages, 250552 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
