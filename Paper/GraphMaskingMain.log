@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.1.26)  31 DEC 2013 00:58
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.1.26)  1 JAN 2014 18:48
 entering extended mode
 **C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/GraphMaskingMain.tex
 (C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/GraphMaskingMain.tex
@@ -210,29 +210,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--3
  []
 
 ) (C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\Introduction.tex
-Underfull \hbox (badness 10000) in paragraph at lines 7--8
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 9--10
+Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
 [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 11--12
+Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
+Underfull \hbox (badness 10000) in paragraph at lines 20--21
 
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 19--40
+Underfull \hbox (badness 10000) in paragraph at lines 24--40
 
  []
 
@@ -352,7 +347,7 @@ MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/Mi
 KTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 
 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on GraphMaskingMain.pdf (11 pages, 248819 bytes).
+Output written on GraphMaskingMain.pdf (11 pages, 249212 bytes).
 PDF statistics:
  102 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

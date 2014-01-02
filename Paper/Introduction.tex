@@ -1,19 +1,7 @@
 \section{Introduction}
 
+\indent Social networking websites provide means to create and maintain meaningful connections between people. Because these websites hold all the data on connections between users, they too hold the tools to suggest future connections; however, this information must be used carefully. Networking websites are trusted with users' private information, and they must take care to not reveal any such information without the users' consent. Any new recommendation service must also reflect this responsibility.
 
-\subsection{Motivation} 
+\indent One such recommendation service is the public display of a social network's  \emph{k-neighborhood graph}, which shows a connection between two users if there is a path of $k$ or less between these users in the original network. Ideally,  users could look at this graph and make new connections based on their k-neighbors. However, it is possible than an adversary could use this information to determine a connection between users that should be kept private. 
 
-
-\indent Social networks provide means to create and maintain meaningful connections between people. They foster environments where people can not only connect with people with whom they have a previous relationship, but with entirely new people as well. Without a proper way to introduce people to others with whom they may have relevant connections, there is little room for social networks to grow and provide anything worthwile to their users. \\
-
-\indent As social networks, such as LinkedIn, hold all the data on connections between their users, they too hold the tools to make suggestions to users on which people to seek out for connections; however, this information must be used carefully. Users put their trust in the social networks that their private information will be kept safe and not disclosed to anyone else, so security is a major factor to be considered while trying to implement methods to expand the network.  \\
-
-\indent In order to give the users relevant suggestions to expand their personal connections, a construction or product of a subset of the information held by the networks must be given such that it both is helpful to the users and does not infringe on the  privacy of others. \\
-
-\subsection{Goal}
-
-\indent The ultimate goal of this research is to find a k value such that the network can provide a given user with a list of his/her k-neighbors that satisfy the aforementioned conditions. The list of k-neighbors given must not reveal too much to users to prevent network adversaries from being able to reconstruct the graph to any reasonable extent but must be useful enough to provide helpful information to the users who make appropriate use of the network. \\
-
-\subsection{Approach}
-
-\indent This paper describes a method that looks at the connections between users to determine useful information to make available to a given user so that he/she may gain new meaningful connections. This includes a label-swapping algorithm and an edge adding algorithm. Algorithms were also designed to try to test the difficulty of accurately extracting any private information from the information given. All algorithms were evaluated for computational efficiency and data was taken to evaluate them overall.  \\
+\indent This paper presents a method to find the minimum $k$ value so that a graph cannot be determined from only its $k$-neighborhood. In the first section, we present a greedy algorithm which continuously adds edges to a graph until no edges can be added without invalidating the given $k$-neighborhood. The next section presents an algorithm to randomize a graph while maintaining its $k$-neighborhood. In section $NAME SECTION$, we give a heuristic to better randomize a given graph. The final section uses this algorithm to find the minimum randomizing $k$ value and uses the greedy algorithm to show that edges are properly disguised. 
