@@ -2,7 +2,7 @@
 \indent Unfortunately, although the label-swapping algorithm yields perfectly satisfying graphs, it often doesn't sufficiently disguise a given graph.  In this section, we present a heuristic, called \emph{adjacency group merges} (or simply \emph{merges}) that further randomizes a given graph, but is not guaranteed to maintain the same k-neighborhood. There are two versions of this heuristic that we developed, \emph{deterministic merges} and \emph{non-deterministic merges}.
 
 \begin{dfn}
-\noindent A \emph{merge} or \emph{merging} of a graph's adjacency groups combines similar adjacency groups into larger groups containing the union of their nodes based on their \emph{difference}. It runs deterministically and maps every pair of nodes to  the differencence value between their adjacency groups and merges adjacency groups of the first n that have not been involved in a previous merge.
+\noindent A \emph{merge} or \emph{merging} of a graph's adjacency groups combines similar adjacency groups into larger groups containing the union of their nodes based on their \emph{difference}. It runs deterministically and maps every pair of nodes to  the differencence value between their adjacency groups and merges adjacency groups of the first n that have not been involved in a previous merge. \\
 \end{dfn}
 
 \begin{dfn}
@@ -37,7 +37,7 @@ The \emph{difference} between adjacency groups $A$ and $B$ is the size of the sy
 	\label{fig:deterministic-merging}
 \end{figure}
 
-\indent The results from LinkedIn data show that with a low value of $k$, such as $k=2$, there are far fewer repeated original edges than without the merging heuristic; however, there is a large number of invalid edges in the masked graph. With the value of $k$ increased to $3$, the number of repeated edges stays the same, and there are far fewer invalid new edges. This is a very good masking of the original graphs while still mostly maintaining the correct k-neighborhoods.
+\indent The results from LinkedIn data show that with a low value of $k$, such as $k=2$, there are far fewer repeated original edges than without the merging heuristic; however, there is a large number of invalid edges in the masked graph. With the value of $k$ increased to $3$, the number of repeated edges stays the same, and there are far fewer invalid new edges. This is a very good masking of the original graphs while still mostly maintaining the correct k-neighborhoods. \\
 
 \begin{figure}[ht]
   \centering
