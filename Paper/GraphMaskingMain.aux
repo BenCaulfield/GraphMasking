@@ -12,28 +12,36 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces An example of the edge-adding algorithm. a) The 3-neighborhood graph for a given input. Each edge in this graph is added to the potential-edge list at the start of the algorithm. b) The solid lines represent edges that will be in the graph the algorithm returns (edge (B,D) was the last edge added). The dotted lines are remaining edges in the potential-edge list. After (B,D) was added, there became a 2-path between A and D. Since E is not adjacent to A in the 3-neighborhood graph, the edge (D,E) was removed from the potential-edge list.}}{4}}
 \newlabel{fig:edge-adding}{{2}{4}{An example of the edge-adding algorithm. a) The 3-neighborhood graph for a given input. Each edge in this graph is added to the potential-edge list at the start of the algorithm. b) The solid lines represent edges that will be in the graph the algorithm returns (edge (B,D) was the last edge added). The dotted lines are remaining edges in the potential-edge list. After (B,D) was added, there became a 2-path between A and D. Since E is not adjacent to A in the 3-neighborhood graph, the edge (D,E) was removed from the potential-edge list}{}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {3}Label-Swapping Algorithm}{4}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Pseudocode for the kSort Algorithm.}}{4}}
-\newlabel{fig:kSort}{{3}{4}{Pseudocode for the kSort Algorithm}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Pseudocode for the label-swapping algorithm.}}{5}}
-\newlabel{fig:label-swap}{{4}{5}{Pseudocode for the label-swapping algorithm}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces In the above graphs, solid lines represent edges in the original graph and dotted lines represent edges that are only in the 2-Neighborhood graph (Note that all edges in the original graph are necessarily in the 2-Neighborhood graph). a) The vertices B and C are in the same adjacency-group, while A and D are each in adjacency-groups of size 1. b) The result of applying a swapping to the adjacency group containing B and C, with the 2-Neighborhood graph remaining the same as the graph in (a).}}{5}}
-\newlabel{fig:sample graph}{{5}{5}{In the above graphs, solid lines represent edges in the original graph and dotted lines represent edges that are only in the 2-Neighborhood graph (Note that all edges in the original graph are necessarily in the 2-Neighborhood graph). a) The vertices B and C are in the same adjacency-group, while A and D are each in adjacency-groups of size 1. b) The result of applying a swapping to the adjacency group containing B and C, with the 2-Neighborhood graph remaining the same as the graph in (a)}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The results from the label-swapping algorithm when run 20 times on the blog data when k=2.}}{6}}
-\newlabel{fig:s40-k=2-label-swap}{{6}{6}{The results from the label-swapping algorithm when run 20 times on the blog data when k=2}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces The results of the edge-adding algorithm when run on the blog data when k=2. }}{5}}
+\newlabel{fig:edge-adding k=2}{{3}{5}{The results of the edge-adding algorithm when run on the blog data when k=2}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces The results of the edge-adding algorithm when run on the blog data when k=3. }}{6}}
+\newlabel{fig:edge-adding k=3}{{4}{6}{The results of the edge-adding algorithm when run on the blog data when k=3}{}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4}Merging Heuristics}{6}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Pseudocode for the Deterministic Merging Heuristic Algorithm.}}{7}}
-\newlabel{fig:deterministic-merging}{{7}{7}{Pseudocode for the Deterministic Merging Heuristic Algorithm}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The resulting neighborhood overlap between nodes in the initial graph and the graph created by the edge adding algorithm. Overlap between two nodes is measured by the size of the intersection of 2-neighborhoods divided by the size of the union of the 2-neighborhoods. The average overlap is 0.5108 . }}{7}}
+\newlabel{fig:edge-adding overlap k=2}{{5}{7}{The resulting neighborhood overlap between nodes in the initial graph and the graph created by the edge adding algorithm. Overlap between two nodes is measured by the size of the intersection of 2-neighborhoods divided by the size of the union of the 2-neighborhoods. The average overlap is 0.5108 }{}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Adversary Simulation}{7}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces The results from the label-swapping algorithm when run 20 times on the blog data when k=2. Adjacency groups differing by 5 or less were merged.}}{8}}
-\newlabel{fig:s40-k=2-merge}{{8}{8}{The results from the label-swapping algorithm when run 20 times on the blog data when k=2. Adjacency groups differing by 5 or less were merged}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The resulting neighborhood overlap between nodes in the initial graph and the graph created by the edge adding algorithm when k = 3. The average overlap is 0.4432 . }}{8}}
+\newlabel{fig:edge-adding overlap k=3}{{6}{8}{The resulting neighborhood overlap between nodes in the initial graph and the graph created by the edge adding algorithm when k = 3. The average overlap is 0.4432 }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Pseudocode for the kSort Algorithm.}}{8}}
+\newlabel{fig:kSort}{{7}{8}{Pseudocode for the kSort Algorithm}{}{}}
 \bibcite{Chester11}{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Pseudocode for the label-swapping algorithm.}}{9}}
+\newlabel{fig:label-swap}{{8}{9}{Pseudocode for the label-swapping algorithm}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces In the above graphs, solid lines represent edges in the original graph and dotted lines represent edges that are only in the 2-Neighborhood graph (Note that all edges in the original graph are necessarily in the 2-Neighborhood graph). a) The vertices B and C are in the same adjacency-group, while A and D are each in adjacency-groups of size 1. b) The result of applying a swapping to the adjacency group containing B and C, with the 2-Neighborhood graph remaining the same as the graph in (a).}}{9}}
+\newlabel{fig:sample graph}{{9}{9}{In the above graphs, solid lines represent edges in the original graph and dotted lines represent edges that are only in the 2-Neighborhood graph (Note that all edges in the original graph are necessarily in the 2-Neighborhood graph). a) The vertices B and C are in the same adjacency-group, while A and D are each in adjacency-groups of size 1. b) The result of applying a swapping to the adjacency group containing B and C, with the 2-Neighborhood graph remaining the same as the graph in (a)}{}{}}
+\newlabel{k_vals}{{5}{9}{Adversary Simulation\relax }{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Returned k' values for synthetic graphs of different mu values.}}{9}}
+\newlabel{fig:k'_values}{{14}{9}{Returned k' values for synthetic graphs of different mu values}{}{}}
 \bibcite{Chester13}{2}
 \bibcite{Erdos12}{3}
-\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces The results from the label-swapping algorithm when run 20 times on the blog data when k=3. Adjacency groups differing by 5 or less were merged.}}{9}}
-\newlabel{fig:s40-k=3-merge}{{9}{9}{The results from the label-swapping algorithm when run 20 times on the blog data when k=3. Adjacency groups differing by 5 or less were merged}{}{}}
-\newlabel{k_vals}{{5}{9}{Adversary Simulation}{}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Returned k' values for synthetic graphs of different mu values.}}{9}}
-\newlabel{fig:k'_values}{{10}{9}{Returned k' values for synthetic graphs of different mu values}{}{}}
 \bibcite{Mittal13}{4}
 \bibcite{Sweeney02}{5}
 \bibcite{Vuokko10}{6}
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces The results from the label-swapping algorithm when run 20 times on the blog data when k=2.}}{10}}
+\newlabel{fig:s40-k=2-label-swap}{{10}{10}{The results from the label-swapping algorithm when run 20 times on the blog data when k=2}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Pseudocode for the Deterministic Merging Heuristic Algorithm.}}{11}}
+\newlabel{fig:deterministic-merging}{{11}{11}{Pseudocode for the Deterministic Merging Heuristic Algorithm}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces The results from the label-swapping algorithm when run 20 times on the blog data when k=2. Adjacency groups differing by 5 or less were merged.}}{11}}
+\newlabel{fig:s40-k=2-merge}{{12}{11}{The results from the label-swapping algorithm when run 20 times on the blog data when k=2. Adjacency groups differing by 5 or less were merged}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces The results from the label-swapping algorithm when run 20 times on the blog data when k=3. Adjacency groups differing by 5 or less were merged.}}{12}}
+\newlabel{fig:s40-k=3-merge}{{13}{12}{The results from the label-swapping algorithm when run 20 times on the blog data when k=3. Adjacency groups differing by 5 or less were merged}{}{}}

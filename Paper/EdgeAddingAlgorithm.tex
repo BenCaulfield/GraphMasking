@@ -32,6 +32,29 @@
 	\label{fig:edge-adding}
 \end{figure}
 
+\begin{figure}[htb]
+\includegraphics[scale=1]{s40_edge_add_k_2.eps}
+	\caption{The results of the edge-adding algorithm when run on the blog data when k=2. }
+	\label{fig:edge-adding k=2}
+\end{figure}
+
+\begin{figure}[htb]
+\includegraphics[scale=1]{s40_edge_add_k_3.eps}
+	\caption{The results of the edge-adding algorithm when run on the blog data when k=3. }
+	\label{fig:edge-adding k=3}
+\end{figure}
+
+\begin{figure}[htb]
+\includegraphics[scale=1]{s40_edge_add_k_2_overlap.eps}
+	\caption{The resulting neighborhood overlap between nodes in the initial graph and the graph created by the edge adding algorithm. Overlap between two nodes is measured by the size of the intersection of 2-neighborhoods divided by the size of the union of the 2-neighborhoods. The average overlap is 0.5108 . }
+	\label{fig:edge-adding overlap k=2}
+\end{figure}
+
+\begin{figure}[htb]
+\includegraphics[scale=1]{s40_edge_add_k_3_overlap.eps}
+	\caption{The resulting neighborhood overlap between nodes in the initial graph and the graph created by the edge adding algorithm when k = 3. The average overlap is 0.4432 . }
+	\label{fig:edge-adding overlap k=3}
+\end{figure}
 
 \indent The edge-adding algorithm, as shown in figure \ref{fig:edge-adding}, is a greedy algorithm which find a graph $G = (V,E)$ that approximately satify a given k-neighborhood graph, $G_k = (V, E')$. The algorithm works to find a graph whose k-neighborhood is at least a subgraph of $G_k$. It begins by adding the edges of $G_k$ into a working list. We know any satisfying graph must be a subgraph of $G_k$, as every edge of a graph must be included in the k-neighborhood of that graph. Therefore, we want to find a subset of our working list that satisfies $G_k$. This algorithm works by iteratively adding edges from the working list to the new graph.  At each iteration, a random edge $(u,v)$ is selected and removed from the working list. A breadth-first search of length $k$ is run from both $u$ and $v$ in the current graph, $G$. If the search (say, from $u$) reaches a node that is not adjacent to $u$ in $G_k$, then we know adding $(u,v)$ to $G$ would invalidate the graph and the edge is discarded. If no such node is found, then $(u,v)$ is added to $G$. This process continues until the working list is empty. This algorithm runs in $O(|E|*d^k)$ time, where $d$ is the maximum node density. As social networking graphs are typically sparse, this algorithm runs in near-linear time. \\
 
