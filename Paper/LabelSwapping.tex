@@ -3,6 +3,7 @@
 
 \begin{figure}[htb]
 	\begin{algorithmic}
+		\tiny
 		\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 		\renewcommand{\algorithmicensure}{\textbf{Output:}}
 		\Require {List of Adjacency Groups $A$}
@@ -20,6 +21,7 @@
 
 \begin{figure}[htb]
 	\begin{algorithmic}
+		\tiny
 		\renewcommand{\algorithmicrequire}{\textbf{Input:}}
 		\renewcommand{\algorithmicensure}{\textbf{Output:}}
 		\Require {Graph $G = (V, E)$, Integer $k$}
@@ -40,19 +42,19 @@
 	\label{fig:label-swap}
 \end{figure}
 
-\indent The label-swapping algorithm, as shown in figure \ref{fig:label-swap} works by finding all maximal adjacency-groups and applying a random swapping to each one. The new graph formed by applying these swappings must have the same k-Neighborhood as the original graph (see Theorem 3.1); however, it may be possible to determine edges in the original graph from the new graph.\\
+\indent The label-swapping algorithm, as shown in figure \ref{fig:label-swap}, works by finding all maximal adjacency-groups and applying a random swapping to each one. The new graph formed by applying these swappings must have the same k-Neighborhood as the original graph (see Theorem 3.1); however, it may be possible to determine edges in the original graph from the new graph.\\
 
 \indent When running this algorithm on LinkedIn data, about eighty percent of the edges that are in the original graph are in the masked graph. This is not a good result because an adversary can be reasonably confident that an edge in the available graph is an actual edge in the original. \\
 
 \begin{figure}[ht]
- \centerline{\includegraphics[scale=0.3 ]{Sample-Graph.png}}
+ \centerline{\includegraphics[scale=0.2 ]{Sample-Graph.png}}
   \caption{In the above graphs, solid lines represent edges in the original graph and dotted lines represent edges that are only in the 2-Neighborhood graph (Note that all edges in the original graph are necessarily in the 2-Neighborhood graph). a)  The vertices B and C are in the same adjacency-group, while A and D are each in adjacency-groups of size 1. b) The result of applying a swapping to the adjacency group containing B and C, with the 2-Neighborhood graph remaining the same as the graph in (a).}
   \label{fig:sample graph}
 \end{figure}
 
 
 \begin{figure}[ht]
-\centerline{\includegraphics[scale=0.3 ]{s40_k_2_nomerge.eps}}
+\centerline{\includegraphics[scale=0.2]{s40_k_2_nomerge.eps}}
 \caption{The results from the label-swapping algorithm when run 20 times on the blog data when k=2.}
  \label{fig:s40-k=2-label-swap}
 \end{figure}
