@@ -40,14 +40,17 @@ The \emph{difference} between adjacency groups $A$ and $B$ is the size of the sy
 
 \indent The results from LinkedIn data show that with a low value of $k$, such as $k=2$, there are far fewer repeated original edges than without the merging heuristic; however, there is a large number of invalid edges in the masked graph. With the value of $k$ increased to $3$, the number of repeated edges stays the same, and there are far fewer invalid new edges. This is a very good masking of the original graphs while still mostly maintaining the correct k-neighborhoods. \\
 
-\begin{figure}[ht]
-\centerline{ \includegraphics[scale=0.3]{s40_k_2_det_graph.eps}}
-  \caption{The results from the label-swapping algorithm when run 20 times on the blog data when k=2. Adjacency groups differing by 5 or less were merged.}
-  \label{fig:s40-k=2-merge}
-\end{figure}
-
-\begin{figure}[ht]
-\centerline{\includegraphics[scale=0.3]{s40_k_3_det_graph.eps}}
-  \caption{The results from the label-swapping algorithm when run 20 times on the blog data when k=3. Adjacency groups differing by 5 or less were merged.}
-  \label{fig:s40-k=3-merge}
+\begin{figure}[htb]
+\centering
+\begin{subfigure}{0.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{s40_k_2_merges.pdf}
+	\label{fig:Merging, k=2}
+\end{subfigure}%
+\begin{subfigure}{0.5\textwidth}
+	\centering
+	\includegraphics[width=1\linewidth]{s40_k_3_merges.pdf}
+	\label{fig:Merging, k=3}
+\end{subfigure}%
+\caption{The results from the label-swapping algorithm when run 20 times on the blog data when k equals 2 and 3. Adjacency groups differing by 5 or less were merged. }
 \end{figure}
