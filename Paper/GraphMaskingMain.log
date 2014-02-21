@@ -1,21 +1,14 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2012.1.26)  14 FEB 2014 18:26
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.2.11)  20 FEB 2014 19:17
 entering extended mode
-**C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/GraphMaskingMain.tex
-(C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/GraphMaskingMain.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2009-06-19, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, lao, latin, lat
-vian, lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerm
-an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese, 
-romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
-sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
-senglishmax, welsh, loaded.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\article.cls"
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**GraphMaskingMain.tex
+(./GraphMaskingMain.tex
+LaTeX2e <2011/06/27>
+Babel <3.9f> and hyphenation patterns for 78 languages loaded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\size11.clo"
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -30,50 +23,50 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \belowcaptionskip=\skip42
 \bibindent=\dimen102
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
-Package: amssymb 2009/06/22 v3.00
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
-Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \@emptytoks=\toks14
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
-(Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks15
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\trig.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\graphics.cfg"
-File: graphics.cfg 2007/01/18 v1.5 graphics configuration of teTeX/TeXLive
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\pdftex-def\pdftex.def"
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\infwarerr.sty"
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ltxcmds.sty"
-Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count87
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ams\classes\amsthm.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
 Package: amsthm 2004/08/06 v2.20
 \thm@style=\toks16
 \thm@bodyfont=\toks17
@@ -85,32 +78,33 @@ Package: amsthm 2004/08/06 v2.20
 \thm@headsep=\skip45
 \dth@everypar=\toks21
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\enumitem\enumitem.sty"
-Package: enumitem 2009/05/18 v2.2 Customized lists
-\enit@toks=\toks22
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \labelindent=\skip46
 \enit@outerparindent=\dimen105
-\enitdp@desc=\count88
+\enit@toks=\toks22
+\enit@inbox=\box26
+\enitdp@description=\count88
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
-Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\refcount.sty"
-Package: refcount 2010/12/01 v3.2 Data extraction from references (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/refcount.sty
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
-Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\kvsetkeys.sty"
-Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\etexcmds.sty"
-Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifluatex.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
 Package ifluatex Info: LuaTeX not detected.
 )
@@ -120,16 +114,16 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 ))))
 \c@section@level=\count89
-LaTeX Info: Redefining \ref on input line 338.
-LaTeX Info: Redefining \pageref on input line 338.
+LaTeX Info: Redefining \ref on input line 353.
+LaTeX Info: Redefining \pageref on input line 353.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\tools\indentfirst.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/tools/indentfirst.sty
 Package: indentfirst 1995/11/23 v1.03 Indent first paragraph (DPC)
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\algorithmicx\algorithmicx.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algorithmicx.sty
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ifthen.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
@@ -143,41 +137,42 @@ Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
 \c@ALG@storecount=\count95
 \c@ALG@tmpcounter=\count96
 \ALG@tmplength=\skip49
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\algorithms\algorithm.sty"
+) (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
 Package: algorithm 2009/08/24 v0.1 Document Style `algorithm' - floating enviro
 nment
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\float\float.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count97
 \float@exts=\toks23
-\float@box=\box26
+\float@box=\box27
 \@float@everytoks=\toks24
-\@floatcapt=\box27
+\@floatcapt=\box28
 )
 \@float@every@algorithm=\toks25
 \c@algorithm=\count98
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\algorithmicx\algpseudocode.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/algorithmicx/algpseudocode.sty
 Package: algpseudocode 
 
 Document Style - pseudocode environments for use with the `algorithmicx' style
-) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf.sty
 Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
-Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\kvdefinekeys.sty"
-Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
 ))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\pdftexcmds.sty"
-Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\ifpdf.sty"
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
 Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
@@ -190,38 +185,39 @@ Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 452.
-))
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption.sty"
-Package: caption 2010/01/09 v3.1m Customizing captions (AR)
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\caption3.sty"
-Package: caption3 2010/01/14 v3.1m caption3 kernel (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 57.
 \captionmargin=\dimen106
 \captionmargin@=\dimen107
 \captionwidth=\dimen108
-\caption@indent=\dimen109
-\caption@parindent=\dimen110
-\caption@hangindent=\dimen111
+\caption@tempdima=\dimen109
+\caption@indent=\dimen110
+\caption@parindent=\dimen111
+\caption@hangindent=\dimen112
 )
 \c@ContinuedFloat=\count99
 Package caption Info: float package is loaded.
 )
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\caption\subcaption.sty"
-Package: subcaption 2008/08/31 v1.0b Adding subcaptions (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
 \c@subfigure=\count100
 \c@subtable=\count101
 )
 \c@thm=\count102
 \c@dfn=\count103
 
-(C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\GraphMaskingMain.aux
+(./GraphMaskingMain.aux)
+\openout1 = `GraphMaskingMain.aux'.
 
-LaTeX Warning: Label `fig:edge-adding k=2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:edge-adding k=2' multiply defined.
-
-)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
@@ -234,31 +230,32 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\context\base\supp-pdf.mkii"
+
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count104
-\scratchdimen=\dimen112
-\scratchbox=\box28
+\scratchdimen=\dimen113
+\scratchbox=\box29
 \nofMPsegments=\count105
 \nofMParguments=\count106
 \everyMPshowfont=\toks26
 \MPscratchCnt=\count107
-\MPscratchDim=\dimen113
+\MPscratchDim=\dimen114
 \MPnumerator=\count108
+\makeMPintoPDFobject=\count109
 \everyMPtoPDFconversion=\toks27
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Try loading font information for U+msa on input line 36.
- ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 36.
 
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-(C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\Abstract.tex
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (./Abstract.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
@@ -268,7 +265,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 4--40
 
  []
 
-(C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\Introduction.tex
+(./Introduction.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
 
  []
@@ -280,22 +277,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
 [1
 
-{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 7--8
 
  []
+
+
+LaTeX Warning: Citation `Sweeney02' on page 2 undefined on input line 11.
+
+
+LaTeX Warning: Citation `Chester11' on page 2 undefined on input line 11.
+
+
+LaTeX Warning: Citation `Chester13' on page 2 undefined on input line 11.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 11--12
 
  []
 
+
+LaTeX Warning: Citation `Vuokko10' on page 2 undefined on input line 13.
+
+
+LaTeX Warning: Citation `Erdos12' on page 2 undefined on input line 13.
+
+
+LaTeX Warning: Citation `Mittal13' on page 2 undefined on input line 13.
+
 )
 Underfull \hbox (badness 10000) in paragraph at lines 13--43
 
  []
 
-(C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\BasicDefinitions.tex
+(./BasicDefinitions.tex
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
@@ -320,60 +335,66 @@ Underfull \hbox (badness 10000) in paragraph at lines 18--19
 
  []
 
-) (C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\EdgeAddingAlgorithm.tex
-<profs_example.png, id=19, 959.08313pt x 262.73157pt>
+) (./EdgeAddingAlgorithm.tex
+<profs_example.png, id=20, 959.08313pt x 262.73157pt>
 File: profs_example.png Graphic file (type png)
  <use profs_example.png>
 Package pdftex.def Info: profs_example.png used on input line 31.
 (pdftex.def)             Requested size: 191.81322pt x 52.54538pt.
 
-<edgeadd_k_2.pdf, id=21, 323.609pt x 191.65602pt>
+<edgeadd_k_2.pdf, id=22, 323.609pt x 191.65602pt>
 File: edgeadd_k_2.pdf Graphic file (type pdf)
  <use edgeadd_k_2.pdf>
 Package pdftex.def Info: edgeadd_k_2.pdf used on input line 41.
-(pdftex.def)             Requested size: 251.9989pt x 149.25128pt.
+(pdftex.def)             Requested size: 180.0pt x 106.60722pt.
 
-<edgeadd_k_3.pdf, id=22, 322.00299pt x 190.67436pt>
+<edgeadd_k_3.pdf, id=23, 322.00299pt x 190.67436pt>
 File: edgeadd_k_3.pdf Graphic file (type pdf)
  <use edgeadd_k_3.pdf>
 Package pdftex.def Info: edgeadd_k_3.pdf used on input line 46.
-(pdftex.def)             Requested size: 251.9989pt x 149.21999pt.
+(pdftex.def)             Requested size: 180.0pt x 106.58778pt.
 
-Overfull \hbox (143.9978pt too wide) in paragraph at lines 39--49
- []$[]$$[]$ 
- []
-
-<s40_k_2_edge_add_overlap.pdf, id=23, 321.2pt x 205.65332pt>
+<s40_k_2_edge_add_overlap.pdf, id=24, 321.2pt x 205.65332pt>
 File: s40_k_2_edge_add_overlap.pdf Graphic file (type pdf)
 
 <use s40_k_2_edge_add_overlap.pdf>
 Package pdftex.def Info: s40_k_2_edge_add_overlap.pdf used on input line 68.
 (pdftex.def)             Requested size: 180.0pt x 115.24979pt.
 
-<s40_k_3_edge_add_overlap.pdf, id=24, 322.00299pt x 206.14415pt>
+<s40_k_3_edge_add_overlap.pdf, id=25, 322.00299pt x 206.14415pt>
 File: s40_k_3_edge_add_overlap.pdf Graphic file (type pdf)
 
 <use s40_k_3_edge_add_overlap.pdf>
 Package pdftex.def Info: s40_k_3_edge_add_overlap.pdf used on input line 74.
 (pdftex.def)             Requested size: 180.0pt x 115.23546pt.
 
+
+LaTeX Warning: Reference `fig:edge-adding' on page 3 undefined on input line 93
+.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
-[3 <C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/profs_example.png>])
+[3 <./profs_example.png>])
 Underfull \hbox (badness 10000) in paragraph at lines 95--49
 
  []
 
-[4 <C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/edgeadd_k_2.pdf> <C:/U
-sers/caulfb2/Documents/GitHub/GraphMasking/Paper/edgeadd_k_3.pdf> <C:/Users/cau
-lfb2/Documents/GitHub/GraphMasking/Paper/s40_k_2_edge_add_overlap.pdf> <C:/User
-s/caulfb2/Documents/GitHub/GraphMasking/Paper/s40_k_3_edge_add_overlap.pdf>]
-(C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\LabelSwapping.tex
+[4 <./edgeadd_k_2.pdf> <./edgeadd_k_3.pdf> <./s40_k_2_edge_add_overlap.pdf> <./
+s40_k_3_edge_add_overlap.pdf>] (./LabelSwapping.tex
+
+LaTeX Warning: Reference `fig:label-swap' on page 5 undefined on input line 2.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 2--3
 
  []
+
+
+LaTeX Warning: Reference `fig:label-swap' on page 5 undefined on input line 45.
+
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 45--46
@@ -385,13 +406,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 47--48
 
  []
 
-<Sample-Graph.png, id=82, 886.06032pt x 276.28218pt>
+<Sample-Graph.png, id=83, 886.06032pt x 276.28218pt>
 File: Sample-Graph.png Graphic file (type png)
  <use Sample-Graph.png>
 Package pdftex.def Info: Sample-Graph.png used on input line 50.
 (pdftex.def)             Requested size: 354.41785pt x 110.51091pt.
 
-<s40_k_2_label.pdf, id=83, 320.39702pt x 193.0141pt>
+<s40_k_2_label.pdf, id=84, 320.39702pt x 193.0141pt>
 File: s40_k_2_label.pdf Graphic file (type pdf)
  <use s40_k_2_label.pdf>
 Package pdftex.def Info: s40_k_2_label.pdf used on input line 57.
@@ -408,9 +429,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--68
 
  []
 
-[5] [6 <C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/Sample-Graph.png> 
-<C:/Users/caulfb2/Documents/GitHub/GraphMasking/Paper/s40_k_2_label.pdf>])
-(C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\MergingHeuristics.tex
+[5]) (./MergingHeuristics.tex [6 <./Sample-Graph.png> <./s40_k_2_label.pdf>]
 Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
@@ -420,23 +439,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 41--42
 
  []
 
-<s40_k_2_merges.pdf, id=102, 322.806pt x 194.49162pt>
+<s40_k_2_merges.pdf, id=103, 322.806pt x 194.49162pt>
 File: s40_k_2_merges.pdf Graphic file (type pdf)
  <use s40_k_2_merges.pdf>
 Package pdftex.def Info: s40_k_2_merges.pdf used on input line 47.
 (pdftex.def)             Requested size: 180.0pt x 108.4516pt.
 
-<s40_k_3_merges.pdf, id=103, 321.2pt x 193.51096pt>
+<s40_k_3_merges.pdf, id=104, 321.2pt x 193.51096pt>
 File: s40_k_3_merges.pdf Graphic file (type pdf)
  <use s40_k_3_merges.pdf>
 Package pdftex.def Info: s40_k_3_merges.pdf used on input line 52.
 (pdftex.def)             Requested size: 180.0pt x 108.4451pt.
 )
-(C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\AdversarySimulation.tex
-
-Package caption Warning: \label before \caption on input line 8.
-See the caption package documentation for explanation.
-
+(./AdversarySimulation.tex
 
 LaTeX Warning: Reference `k_vals' on page 7 undefined on input line 3.
 
@@ -450,54 +465,51 @@ Underfull \hbox (badness 10000) in paragraph at lines 5--6
 
  []
 
-<adversary_graph.pdf, id=110, 321.2pt x 192.76918pt>
+<adversary_graph.pdf, id=111, 321.2pt x 192.76918pt>
 File: adversary_graph.pdf Graphic file (type pdf)
  <use adversary_graph.pdf>
 Package pdftex.def Info: adversary_graph.pdf used on input line 9.
 (pdftex.def)             Requested size: 321.19922pt x 192.76869pt.
-) (C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\Citations.tex [8 <C:/Us
-ers/caulfb2/Documents/GitHub/GraphMasking/Paper/s40_k_2_merges.pdf> <C:/Users/c
-aulfb2/Documents/GitHub/GraphMasking/Paper/s40_k_3_merges.pdf> <C:/Users/caulfb
-2/Documents/GitHub/GraphMasking/Paper/adversary_graph.pdf>]) [9]
-(C:\Users\caulfb2\Documents\GitHub\GraphMasking\Paper\GraphMaskingMain.aux)
+) (./Citations.tex [8 <./s40_k_2_merges.pdf> <./s40_k_3_merges.pdf> <./adversar
+y_graph.pdf>]) [9] (./GraphMaskingMain.aux)
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 3919 strings out of 494049
- 60913 string characters out of 3146059
- 128141 words of memory out of 3000000
- 7111 multiletter control sequences out of 15000+200000
- 12954 words of font info for 49 fonts, out of 3000000 for 9000
- 715 hyphenation exceptions out of 8191
- 42i,7n,38p,1424b,429s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C
-:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx6.pfb><C:/P
-rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Pro
-gram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Progra
-m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program F
-iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program File
-s (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (
-x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86
-)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files (x86)/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/MiKTeX 2.
-9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
-/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/pu
-blic/amsfonts/cm/cmsy8.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
-amsfonts/symbols/msbm7.pfb>
-Output written on GraphMaskingMain.pdf (9 pages, 15703830 bytes).
+ 4183 strings out of 493307
+ 64398 string characters out of 6139905
+ 132003 words of memory out of 5000000
+ 7541 multiletter control sequences out of 15000+600000
+ 12954 words of font info for 49 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 42i,7n,38p,1372b,448s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
+5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/symbols/msbm7.pfb>
+Output written on GraphMaskingMain.pdf (9 pages, 15675326 bytes).
 PDF statistics:
- 210 PDF objects out of 1000 (max. 8388607)
+ 213 PDF objects out of 1000 (max. 8388607)
+ 161 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
